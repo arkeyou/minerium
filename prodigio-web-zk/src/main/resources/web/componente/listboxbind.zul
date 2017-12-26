@@ -1,0 +1,1 @@
+<listbox  id="tipoPessoa" zclass="mydb" mold="select" selectedItem="@{classecontrole.objetoAtual.tipoPessoa,save-when=none}" model="@{listaTipoPessoa}" />

@@ -1,0 +1,27 @@
+<window id="selecionarUnidade" width="450px" apply="br.gov.prodigio.controle.SelecionaUnidadeCtr" position="center,center" closable="true" mode="modal">
+	<vlayout spacing="1px">
+		<grid>
+			<columns>
+				<column hflex="2" />
+			</columns>
+			<rows>
+				<row>
+					<label value="Unidade" />
+				</row>
+				<row hflex="2">
+					<listbox id="selecionaUnidade"
+						selectedItem="${each}">
+						<listitem forEach="${arg.unidades}"
+							value="${each}" label="${each.nome}">
+						</listitem>
+					</listbox>
+				</row>
+				<row>
+					<button id="closeBtn" label="Selecionar"
+						onClick="selecionarUnidade$composer.configuraUnidadeLogada(selecionaUnidade.selectedItem, selecionarUnidade)" />
+				</row>
+			</rows>
+		</grid>
+
+	</vlayout>
+</window>

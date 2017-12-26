@@ -1,0 +1,6 @@
+<window id="popup" width="90%" height="90%" border="normal" closable="true" maximizable="true" minimizable="true">
+	<caption label="Inpressão" />
+	<iframe id="iframe" src="" style="border: 1px solid gray" width="100%" height="95%" />
+	<separator bar="true" />
+	<hbox align="center"></hbox>
+</window>

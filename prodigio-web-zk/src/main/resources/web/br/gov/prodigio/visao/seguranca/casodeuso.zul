@@ -1,0 +1,53 @@
+<window id="casodeusowindow" apply="br.gov.prodigio.controle.seguranca.CasoDeUsoCtr" width="100%" height="450px" maximizable="true" maximized="true" border="none" style="horizontal-align:center;border: 0px solid red; padding: 0px 0px">
+	<style dynamic="true">
+		.campo-disd { color: blue !important; cursor: default !important; opacity: .6; -moz-opacity: .6; filter: alpha(opacity=60); font-weight: bold; } .campo-disd * { color: blue !important; cursor: default !important; font-weight: bold; } .campo { background: white; border: 1px solid
+		#7F9DB9;width:150px } .campo-focus, .campo-focus input select{ border: 1px solid red; } .campo-text-invalid { background: yellow; border: 1px solid red; } .campo-readonly, .campo-text-disd { background: green; } .campodata { background: white; border: 1px solid #7F9DB9;width:150px }
+	</style>
+	<grid id="barradebotoes" width="99%"></grid>
+	<div id="selecao"><listbox id="listaSelecao" rows="10" mold="paging" pageSize="10" pagingPosition="top" model="@{classecontrole.listaDeObjetos}" selectedItem="@{classecontrole.objetoAtual}" width="99%" style="border: 1px solid;padding: 0px 0px0px 0px">
+		<auxhead>
+			<auxheader label="" colspan="3">
+				Nome:
+				<textbox id="nomeArg" value="" onBlur='classecontrole.atualizaObjetoArg(self)'></textbox>
+			</auxheader>
+		</auxhead>
+		<listhead id="cabecalho">
+			<listheader label="Titulo"  sort="auto" value="titulo" onCreate="classecontrole.configuraOrdenacao(self)"/>
+			<listheader label="Menu"  sort="auto" value="menu" onCreate="classecontrole.configuraOrdenacao(self)"/>
+			<listheader label="Url" sort="auto" value="url" onCreate="classecontrole.configuraOrdenacao(self)"/>
+		</listhead>
+		<listitem self="@{each=objeto}" height="25px">
+			<listcell label="@{objeto.titulo}" />
+			<listcell label="@{objeto.menu}" />
+			<listcell label="@{objeto.url}" />
+		</listitem>
+	</listbox>
+	</div><div id="manutencao" visible="false" align="center" height="93%" width="100%">
+		<grid pagingPosition="top" width="100%" align="center" style="horizontal-align:center">
+			<columns height="100%">
+				<column align="center" valign="top" style="horizontal-align:center" zclass="x" height="100%" width="60%">
+					<grid width="100%" align="right">
+						<rows width="100%">
+							<row>
+								<label value="Titulo" width="10px" style="horizontal-align:right"></label>
+								<textbox id="titulo" constraint="no empty" maxlength="30" width="400px" zclass="campo" value="@{classecontrole.objetoAtual.titulo,save-when=salvar.onClick}" />
+							</row>
+							<row>
+								<label value="Menu" width="10px" style="horizontal-align:right"></label>
+								<textbox id="menu" constraint="no empty" maxlength="30" width="400px" zclass="campo" value="@{classecontrole.objetoAtual.menu,save-when=salvar.onClick}" />
+							</row>
+							<row>
+								<label value="URL" width="10px" style="horizontal-align:right"></label>
+								<textbox id="url" maxlength="60" constraint="no empty" width="400px" zclass="campo" value="@{classecontrole.objetoAtual.url,save-when=salvar.onClick}" />
+							</row>
+							<row>
+								<label value="Descrição" width="10px" style="horizontal-align:right"></label>
+								<textbox id="descricao" constraint="no empty" maxlength="450" width="450px" multiline="true" rows="10" zclass="campo" value="@{classecontrole.objetoAtual.descricao,save-when=salvar.onClick}" />
+							</row>
+						</rows>
+					</grid>
+				</column>
+			</columns>
+		</grid>
+	</div>
+</window>

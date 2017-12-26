@@ -1,0 +1,150 @@
+<!-- Minerium Meta Framework -->
+<!-- Licença: GNU Lesser General Public License (LGPL), version 3. -->
+<!-- Copyright (C) (2013-2018) Prodemge. Todos os direitos reservados. -->
+<!-- Este arquivo é parte do Minerium Meta Framework O Minerium Meta Framework é um software livre; você pode redistribuí-lo e/ou modificá-lo dentro dos termos da GNU Lesser General Public License (LGPL), version 3. -->
+<!-- Este framework é distribuído na esperança de que possa ser útil, mas SEM NENHUMA GARANTIA; sem uma garantia implícita de ADEQUAÇÃO a qualquer MERCADO ou APLICAÇÃO EM PARTICULAR. Ver arquivo LICENSE.md no diretório raiz ou acessar <https://www.gnu.org/licenses/lgpl.html> -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>br.mg.gov.prodemge.prodigio</groupId>
+		<artifactId>minerium-pom</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
+	<artifactId>minerium</artifactId>
+	<version>1.0.000-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>Prodigio Framework - ${version.prodigio} </name>
+	<description>Framework de desenvolvimento Prodigio - ${version.prodigio}</description>
+
+	<modules>
+		<module>../prodigio-comum</module>
+		<module>../prodigio-dominio</module>
+		<module>../prodigio-mainframe-interface</module>
+		<module>../prodigio-negocio-interface</module>
+		<module>../prodigio-infraestrutura</module>
+		<module>../prodigio-negocio</module>
+		<module>../prodigio-test</module>
+		<module>../prodigio-web</module>
+		<module>../prodigio-web-zk</module>
+		<!-- <module>../prodigio-negocio-test</module> -->
+	</modules>
+
+	<properties>
+		<version.prodigio>1.0.000-SNAPSHOT</version.prodigio>
+		<version.source.compiler>1.8</version.source.compiler>
+		<version.target.compiler>1.8</version.target.compiler>
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>br.mg.gov.prodemge.prodigio</groupId>
+				<artifactId>minerium-negocio-interface</artifactId>
+				<version>${version.prodigio}</version>
+			</dependency>
+			<dependency>
+				<groupId>br.mg.gov.prodemge.prodigio</groupId>
+				<artifactId>minerium-negocio</artifactId>
+				<version>${version.prodigio}</version>
+			</dependency>
+			<dependency>
+				<groupId>br.mg.gov.prodemge.prodigio</groupId>
+				<artifactId>minerium-web</artifactId>
+				<version>${version.prodigio}</version>
+			</dependency>
+			<dependency>
+				<groupId>br.mg.gov.prodemge.prodigio</groupId>
+				<artifactId>minerium-web-zk</artifactId>
+				<version>${version.prodigio}</version>
+			</dependency>
+			<dependency>
+				<groupId>br.mg.gov.prodemge.prodigio</groupId>
+				<artifactId>minerium-dominio</artifactId>
+				<version>${version.prodigio}</version>
+			</dependency>
+			<dependency>
+				<groupId>br.mg.gov.prodemge.prodigio</groupId>
+				<artifactId>minerium-dominio</artifactId>
+				<version>${version.prodigio}</version>
+				<type>test-jar</type>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>br.mg.gov.prodemge.prodigio</groupId>
+				<artifactId>minerium-comum</artifactId>
+				<version>${version.prodigio}</version>
+			</dependency>
+			<dependency>
+				<groupId>br.mg.gov.prodemge.prodigio</groupId>
+				<artifactId>minerium-infraestrutura</artifactId>
+				<version>${version.prodigio}</version>
+			</dependency>
+			<dependency>
+				<groupId>br.mg.gov.prodemge.prodigio</groupId>
+				<artifactId>minerium-mainframe-interface</artifactId>
+				<version>${version.prodigio}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${version.maven.compiler.plugin}</version>
+					<configuration>
+						<source>${version.source.compiler}</source>
+						<target>${version.target.compiler}</target>
+						<showDeprecation>true</showDeprecation>
+						<showWarnings>true</showWarnings>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>${version.source.plugin}</version>
+					<executions>
+						<execution>
+							<id>attach-sources</id>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>default-jar</id>
+							<phase>package</phase>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>repo-prodigio</id>
+			<name>Repositorio Prodigio</name>
+			<url>http://artifactory.prodemge.gov.br/artifactory/repo-prodigio</url>
+		</repository>
+	</distributionManagement>
+
+</project>

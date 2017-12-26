@@ -1,0 +1,27 @@
+<!-- Minerium Meta Framework -->
+<!-- Licença: GNU Lesser General Public License (LGPL), version 3. -->
+<!-- Copyright (C) (2013-2018) Prodemge. Todos os direitos reservados. -->
+<!-- Este arquivo é parte do Minerium Meta Framework O Minerium Meta Framework é um software livre; você pode redistribuí-lo e/ou modificá-lo dentro dos termos da GNU Lesser General Public License (LGPL), version 3. -->
+<!-- Este framework é distribuído na esperança de que possa ser útil, mas SEM NENHUMA GARANTIA; sem uma garantia implícita de ADEQUAÇÃO a qualquer MERCADO ou APLICAÇÃO EM PARTICULAR. Ver arquivo LICENSE.md no diretório raiz ou acessar <https://www.gnu.org/licenses/lgpl.html> -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>br.mg.gov.prodemge.prodigio</groupId>
+		<artifactId>minerium</artifactId>
+		<version>1.0.000-SNAPSHOT</version>
+		<relativePath>../prodigio</relativePath>
+	</parent>
+	
+	<artifactId>minerium-negocio-interface</artifactId>
+	<name>Prodigio Interfaces de Negócio - ${project.version}</name>
+	<description>Interfaces de negócio do framework Prodigio</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>br.mg.gov.prodemge.prodigio</groupId>
+			<artifactId>minerium-dominio</artifactId>
+		</dependency>
+	</dependencies>
+</project>

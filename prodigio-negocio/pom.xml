@@ -1,0 +1,120 @@
+<!-- Minerium Meta Framework -->
+<!-- Licença: GNU Lesser General Public License (LGPL), version 3. -->
+<!-- Copyright (C) (2013-2018) Prodemge. Todos os direitos reservados. -->
+<!-- Este arquivo é parte do Minerium Meta Framework O Minerium Meta Framework é um software livre; você pode redistribuí-lo e/ou modificá-lo dentro dos termos da GNU Lesser General Public License (LGPL), version 3. -->
+<!-- Este framework é distribuído na esperança de que possa ser útil, mas SEM NENHUMA GARANTIA; sem uma garantia implícita de ADEQUAÇÃO a qualquer MERCADO ou APLICAÇÃO EM PARTICULAR. Ver arquivo LICENSE.md no diretório raiz ou acessar <https://www.gnu.org/licenses/lgpl.html> -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>br.mg.gov.prodemge.prodigio</groupId>
+		<artifactId>minerium</artifactId>
+		<version>1.0.000-SNAPSHOT</version>
+		<relativePath>../prodigio</relativePath>
+	</parent>
+	<artifactId>minerium-negocio</artifactId>
+	<name>Prodigio Implementação - ${project.version}</name>
+	<description>Implementação da interface</description>
+	
+	<dependencies>
+		<dependency>
+			<groupId>br.mg.gov.prodemge.prodigio</groupId>
+			<artifactId>minerium-negocio-interface</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>br.mg.gov.prodemge.prodigio</groupId>
+			<artifactId>minerium-dominio</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>br.mg.gov.prodemge.prodigio</groupId>
+			<artifactId>minerium-comum</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>br.mg.gov.prodemge.prodigio</groupId>
+			<artifactId>minerium-infraestrutura</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId> 
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.spec.javax.ejb</groupId>
+			<artifactId>jboss-ejb-api_3.1_spec</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- Import the CDI API, we use provided scope as the API is included in JBoss AS 7 -->
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.envers</groupId>
+			<artifactId>hibernate-envers</artifactId>
+		</dependency>
+		
+		<!-- Test scope dependencies -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>junit</groupId> -->
+<!-- 			<artifactId>junit</artifactId> -->
+<!-- 			<scope>test</scope>			 -->
+<!-- 		</dependency> -->
+
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.jboss.arquillian.junit</groupId> -->
+<!-- 			<artifactId>arquillian-junit-container</artifactId> -->
+<!-- 			<scope>test</scope> -->
+<!-- 		</dependency> -->
+
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.easytesting</groupId> -->
+<!-- 			<artifactId>fest-assert</artifactId> -->
+<!-- 			<version>1.4</version> -->
+<!-- 			<scope>test</scope> -->
+<!-- 		</dependency> -->
+
+<!-- 		<dependency> -->
+<!-- 			<groupId>joda-time</groupId> -->
+<!-- 			<artifactId>joda-time</artifactId> -->
+<!-- 			<version>2.5</version> -->
+<!-- 		</dependency> -->
+
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.jboss.shrinkwrap.resolver</groupId> -->
+<!-- 			<artifactId>shrinkwrap-resolver-depchain</artifactId> -->
+<!-- 			<scope>test</scope> -->
+<!-- 			<type>pom</type> -->
+<!-- 		</dependency>		 -->
+
+		<dependency>
+		    <groupId>javax.validation</groupId>
+		    <artifactId>validation-api</artifactId>
+		    <scope>test</scope>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.mockito</groupId>
+		    <artifactId>mockito-core</artifactId> 
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-library</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+</project>

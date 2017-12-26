@@ -1,0 +1,363 @@
+<!-- Minerium Meta Framework -->
+<!-- Licença: GNU Lesser General Public License (LGPL), version 3. -->
+<!-- Copyright (C) (2013-2018) Prodemge. Todos os direitos reservados. -->
+<!-- Este arquivo é parte do Minerium Meta Framework O Minerium Meta Framework é um software livre; você pode redistribuí-lo e/ou modificá-lo dentro dos termos da GNU Lesser General Public License (LGPL), version 3. -->
+<!-- Este framework é distribuído na esperança de que possa ser útil, mas SEM NENHUMA GARANTIA; sem uma garantia implícita de ADEQUAÇÃO a qualquer MERCADO ou APLICAÇÃO EM PARTICULAR. Ver arquivo LICENSE.md no diretório raiz ou acessar <https://www.gnu.org/licenses/lgpl.html> -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>br.mg.gov.prodemge.prodigio</groupId>
+		<artifactId>minerium</artifactId>
+		<version>1.0.000-SNAPSHOT</version>
+		<relativePath>../prodigio</relativePath>
+	</parent>
+	<artifactId>minerium-web-zk</artifactId>
+	<name>Prodigio Web-ZK - ${project.version}</name>
+	<description>Camada web do framework Prodigio</description>
+	<properties>
+		<version.zk>8.0.2.2</version.zk>
+		<version.zk.mod>8.0.1.1</version.zk.mod>
+		<version.bouncycastle>1.49</version.bouncycastle>
+		<zkel.version>1.1.0</zkel.version>
+		<commons-lang.version>2.4</commons-lang.version>
+		<servlet.version>2.4</servlet.version>
+		<ckez.version>4.4.6.3</ckez.version>
+		<bsh.version>2.0b4</bsh.version>
+		<commons-io.version>2.4</commons-io.version>
+		<filters.version>2.0.235</filters.version>
+		<itext.version>2.1.5</itext.version>
+		<jxl.version>2.6.12</jxl.version>
+		<jcommon.version>1.0.17</jcommon.version>
+		<poi.version>3.7</poi.version>
+		<commons-collections.version>3.2.1</commons-collections.version>
+		<commons-fileupload.version>1.2.2</commons-fileupload.version>
+		<commons-logging.version>1.1.1</commons-logging.version>
+		<commons-codec.version>1.8</commons-codec.version>
+		<jasperreports.version>4.5.1</jasperreports.version>
+		<javassist.version>3.18.2-GA</javassist.version>
+		<gson.version>2.3.1</gson.version>
+		<zsoup.version>1.8.2.5</zsoup.version>
+		<slf4j-api.version>1.7.5</slf4j-api.version>
+		<slf4j-jdk14.version>1.7.5</slf4j-jdk14.version>
+		<gmapsz.version>3.0.3</gmapsz.version>
+		<timelinez.version>2.3.1_50</timelinez.version>
+		<timeplotz.version>1.1_50</timeplotz.version>
+		<zuljsp.version>2.6.0</zuljsp.version>
+		<flashchart.version>1.0</flashchart.version>
+		<jfreechart.version>1.0.14</jfreechart.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>br.mg.gov.prodemge.prodigio</groupId>
+			<artifactId>minerium-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.spec.javax.servlet</groupId>
+			<artifactId>jboss-servlet-api_3.0_spec</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
+		<!-- dependency> <groupId>commons-collections</groupId> <artifactId>commons-collections</artifactId> </dependency> <dependency> <groupId>commons-fileupload</groupId> <artifactId>commons-fileupload</artifactId> <version>1.2.1</version> </dependency -->
+		<dependency>
+			<groupId>commons-digester</groupId>
+			<artifactId>commons-digester</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<!-- ZK core -->
+		<dependency>
+			<groupId>org.zkoss.common</groupId>
+			<artifactId>zcommon</artifactId>
+			<version>${version.zk}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.common</groupId>
+			<artifactId>zel</artifactId>
+			<version>${version.zk}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zhtml</artifactId>
+			<version>${version.zk}</version>
+			<exclusions>
+				<exclusion>
+					<!-- declare the exclusion here -->
+					<groupId>org.zkoss.zk</groupId>
+					<artifactId>zul</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zk</artifactId>
+			<version>${version.zk}</version>
+			<exclusions>
+				<exclusion>
+					<!-- declare the exclusion here -->
+					<groupId>org.zkoss.common</groupId>
+					<artifactId>zweb</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zkbind</artifactId>
+			<version>${version.zk}</version>
+			<exclusions>
+				<exclusion>
+					<!-- declare the exclusion here -->
+					<groupId>org.zkoss.zk</groupId>
+					<artifactId>zul</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<!-- ZK PE -->
+		<!-- <dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zkex</artifactId>
+			<version>${version.zk}</version>
+		</dependency> -->
+		<!-- ZK EE -->
+		<!-- <dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zkmax</artifactId>
+			<version>${version.zk}</version>
+		</dependency> -->
+		
+		 <dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zkplus</artifactId>
+			<version>${version.zk.mod}</version>
+			<classifier>ee-modificado</classifier>
+			<exclusions>
+				<exclusion>
+					<groupId>org.zkoss.zk</groupId>
+					<artifactId>zul</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- NA VERSÃO CE, SOMENTE NO ZK3 -->
+		<!-- <dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zml</artifactId>
+			<version>3.6.4</version>
+		</dependency> -->
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zul</artifactId>
+			<version>${version.zk}</version>
+			<exclusions>
+				<exclusion>
+					<!-- declare the exclusion here -->
+					<groupId>org.zkoss.zk</groupId>
+					<artifactId>zk</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- ZK EE --> 
+		<!-- <dependency>
+			<groupId>org.zkoss.zk</groupId>  
+			<artifactId>zuti</artifactId>
+			<version>${version.zk}</version>
+		</dependency> -->
+		<dependency>
+			<groupId>org.zkoss.common</groupId>
+			<artifactId>zweb</artifactId>
+			<version>${version.zk}</version>
+			<exclusions>
+				<exclusion>
+					<!-- declare the exclusion here -->
+					<groupId>org.zkoss.common</groupId>
+					<artifactId>zcommon</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>       		<!-- ZK ext -->
+		<dependency>
+			<groupId>org.beanshell</groupId>
+			<artifactId>bsh</artifactId>
+			<version>${bsh.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.jhlabs</groupId>
+			<artifactId>filters</artifactId>
+			<version>${filters.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.lowagie</groupId>
+			<artifactId>itext</artifactId>
+			<version>${itext.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jfree</groupId>
+			<artifactId>jcommon</artifactId>
+			<version>${jcommon.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jfree</groupId>
+			<artifactId>jfreechart</artifactId>
+			<version>${jfreechart.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.jexcelapi</groupId>
+			<artifactId>jxl</artifactId>
+			<version>${jxl.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>${poi.version}</version>
+		</dependency>
+		<!--dependency> <groupId>commons-collections</groupId> <artifactId>commons-collections</artifactId> <version>${commons-collections}</version> </dependency -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>${commons-fileupload.version}</version>
+		</dependency>
+		<!-- dependency> <groupId>commons-logging</groupId> <artifactId>commons-logging</artifactId> <version>${commons-logging}</version> </dependency -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>${commons-codec.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>${jasperreports.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>${javassist.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>${gson.version}</version>
+		</dependency>
+		<!-- <dependency> <groupId>org.zkoss</groupId> <artifactId>zsoup</artifactId> <version>${zsoup.version}</version> </dependency> -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j-api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-jdk14</artifactId>
+			<version>${slf4j-jdk14.version}</version>
+		</dependency>
+		<!--Fim ZK ext -->
+		<!-- ZK Forge -->
+		<dependency>
+			<groupId>org.zkoss.addon</groupId>
+			<artifactId>flashchart</artifactId>
+			<version>${flashchart.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zkforge</groupId>
+			<artifactId>gmapsz</artifactId>
+			<version>${gmapsz.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zkforge</groupId>
+			<artifactId>timelinez</artifactId>
+			<version>${timelinez.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zkforge</groupId>
+			<artifactId>timeplotz</artifactId>
+			<version>${timeplotz.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zuljsp</artifactId>
+			<version>${zuljsp.version}</version>
+		</dependency>
+		<!-- Fim ZK Forge -->
+		<dependency>
+			<groupId>com.kenai</groupId>
+			<artifactId>constantine</artifactId>
+			<version>0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zkforge</groupId>
+			<artifactId>ckez</artifactId>
+			<version>${ckez.version}</version>
+		</dependency>
+		<!-- ZK theme -->
+		<dependency>
+			<groupId>org.zkoss.theme</groupId>
+			<artifactId>sapphire</artifactId>
+			<version>${version.zk}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.theme</groupId>
+			<artifactId>silvertail</artifactId>
+			<version>${version.zk}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.addons</groupId>
+			<artifactId>zk-bootstrap</artifactId>
+			<version>1.0.0</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>zul</artifactId>
+					<groupId>org.zkoss.zk</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>zkmax</artifactId>
+					<groupId>org.zkoss.zk</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>zkex</artifactId>
+					<groupId>org.zkoss.zk</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- Itext -->
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itextpdf</artifactId>
+			<version>5.5.10</version>
+		</dependency>
+		<dependency>
+			<groupId>com.itextpdf.tool</groupId>
+			<artifactId>xmlworker</artifactId>
+			<version>5.5.10</version>
+		</dependency>
+		<!-- Fim Itext -->
+		<!-- <dependency> <groupId>org.zkoss.addons</groupId> <artifactId>zk-bootstrap</artifactId> <version>1.0.0</version> </dependency> -->
+	</dependencies>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+				<version>1.1.1</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>

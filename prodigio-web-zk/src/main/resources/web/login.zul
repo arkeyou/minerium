@@ -1,0 +1,18 @@
+<window id="principalwindow" use="br.gov.prodigio.controle.WindowPrincipal" width="100%" height="100%" border="none" style="vertical-align: middle;horizontal-align:center; border: 0px solid;">
+	<div style="vertical-align: middle;horizontal-align:center;" align="center" height="100%">
+		<div height="40%"></div>
+		<grid style="vertical-align:middle;horizontal-align:center" width="50%" align="center">
+			<columns>
+				<column label="." hflex="1"></column>
+				<column label="." hflex="3"></column>
+			</columns>
+			<rows>
+				<row align="left">Usuário:<textbox id="usuario"></textbox></row>
+				<row align="left">Senha:<textbox id="senha" type="password" ></textbox></row>
+				<row align="left" id="row_unidade" visible="false">Unidade:<listbox id="unidade" zclass="campo" width="300px" mold="select"></listbox></row>
+				<row align="center" spans="2"><button visible="false" label="Entrar na unidade" id="logarNaUnidade" width="150px" onClick="principalwindow.logarNaUnidade(unidade.getSelectedItem())"></button></row>
+				<row align="center" spans="2" id="logarNoSistema"><button label="Entrar" width="150px" onClick="principalwindow.login(usuario.getValue(), senha.getValue())"></button></row>
+			</rows>
+		</grid>
+	</div>
+</window>

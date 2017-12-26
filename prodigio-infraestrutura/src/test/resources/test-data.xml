@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	
+  <EstiloMusicalVO id="01" nome="Heavy Metal" nr_versao="0" cd_login_movimentacao="1.1.1.1" ds_situacao="N" ip_movimentacao="1.1.1.1" tp_operacao="i" ts_movimentacao="2017-12-01 12:00:00" st_registro="0" />
+
+  <PaisVO id="1" nome="EUA" nr_versao="0" cd_login_movimentacao="1.1.1.1" ds_situacao="N" ip_movimentacao="1.1.1.1" tp_operacao="i" ts_movimentacao="2017-12-01 12:00:00" st_registro="0" />
+
+  <BandaVO id="1" id_estilo_musical="1" id_pais="1" nome="Metallica" nr_versao="0" cd_login_movimentacao="1.1.1.1" ds_situacao="N" ip_movimentacao="1.1.1.1" tp_operacao="i" ts_movimentacao="2017-12-01 12:00:00" st_registro="0" />
+
+  <IntegranteVO id="1" id_banda="1" nome="James Hetfield" nr_versao="0" cd_login_movimentacao="1.1.1.1" ds_situacao="N" ip_movimentacao="1.1.1.1" tp_operacao="i" ts_movimentacao="2017-12-01 12:00:00" st_registro="0" />
+  <IntegranteVO id="2" id_banda="1" nome="Lars Ulrich" nr_versao="0" cd_login_movimentacao="1.1.1.1" ds_situacao="N" ip_movimentacao="1.1.1.1" tp_operacao="i" ts_movimentacao="2017-12-01 12:00:00" st_registro="0" />
+  <IntegranteVO id="3" id_banda="1" nome="Kirk Hammet" nr_versao="0" cd_login_movimentacao="1.1.1.1" ds_situacao="N" ip_movimentacao="1.1.1.1" tp_operacao="i" ts_movimentacao="2017-12-01 12:00:00" st_registro="0" />
+  <IntegranteVO id="4" id_banda="1" nome="Cliff Burton" nr_versao="0" cd_login_movimentacao="1.1.1.1" ds_situacao="N" ip_movimentacao="1.1.1.1" tp_operacao="i" ts_movimentacao="2017-12-01 12:00:00" st_registro="0" />
+
+  <InstrumentoVO id="1" nome="Guitarra" id_integrante="1" nr_versao="0" cd_login_movimentacao="1.1.1.1" ds_situacao="N" ip_movimentacao="1.1.1.1" tp_operacao="i" ts_movimentacao="2017-12-01 12:00:00" st_registro="0" />
+  <InstrumentoVO id="2" nome="Guitarra" id_integrante="3" nr_versao="0" cd_login_movimentacao="1.1.1.1" ds_situacao="N" ip_movimentacao="1.1.1.1" tp_operacao="i" ts_movimentacao="2017-12-01 12:00:00" st_registro="0" />
+  <InstrumentoVO id="3" nome="Baixo" id_integrante="4" nr_versao="0" cd_login_movimentacao="1.1.1.1" ds_situacao="N" ip_movimentacao="1.1.1.1" tp_operacao="i" ts_movimentacao="2017-12-01 12:00:00" st_registro="0" />
+  <InstrumentoVO id="4" nome="Bateria" id_integrante="2" nr_versao="0" cd_login_movimentacao="1.1.1.1" ds_situacao="N" ip_movimentacao="1.1.1.1" tp_operacao="i" ts_movimentacao="2017-12-01 12:00:00" st_registro="0" />
+
+  <AlbumVO id="1" ano="1983" id_banda="1" nome="Kill 'Em All" nr_versao="0" cd_login_movimentacao="1.1.1.1" ds_situacao="N" ip_movimentacao="1.1.1.1" tp_operacao="i" ts_movimentacao="2017-12-01 12:00:00" st_registro="0" />
+  <AlbumVO id="2" ano="1984" id_banda="1" nome="Ride the Lightning" nr_versao="0" cd_login_movimentacao="1.1.1.1" ds_situacao="N" ip_movimentacao="1.1.1.1" tp_operacao="i" ts_movimentacao="2017-12-01 12:00:00" st_registro="0" />
+  <AlbumVO id="3" ano="1986" id_banda="1" nome="Master of Puppets" nr_versao="0" cd_login_movimentacao="1.1.1.1" ds_situacao="N" ip_movimentacao="1.1.1.1" tp_operacao="i" ts_movimentacao="2017-12-01 12:00:00" st_registro="0" />
+  <AlbumVO id="4" ano="1988" id_banda="1" nome="...And Justice for All" nr_versao="0" cd_login_movimentacao="1.1.1.1" ds_situacao="N" ip_movimentacao="1.1.1.1" tp_operacao="i" ts_movimentacao="2017-12-01 12:00:00" st_registro="0" />
+  <AlbumVO id="5" ano="1991" id_banda="1" nome="Metallica" nr_versao="0" cd_login_movimentacao="1.1.1.1" ds_situacao="N" ip_movimentacao="1.1.1.1" tp_operacao="i" ts_movimentacao="2017-12-01 12:00:00" st_registro="0" />
+  <AlbumVO id="6" ano="1996" id_banda="1" nome="Load" nr_versao="0" cd_login_movimentacao="1.1.1.1" ds_situacao="N" ip_movimentacao="1.1.1.1" tp_operacao="i" ts_movimentacao="2017-12-01 12:00:00" st_registro="0" />
+  <AlbumVO id="7" ano="1997" id_banda="1" nome="ReLoad" nr_versao="0" cd_login_movimentacao="1.1.1.1" ds_situacao="N" ip_movimentacao="1.1.1.1" tp_operacao="i" ts_movimentacao="2017-12-01 12:00:00" st_registro="0" />
+  <AlbumVO id="8" ano="2003" id_banda="1" nome="St. Anger" nr_versao="0" cd_login_movimentacao="1.1.1.1" ds_situacao="N" ip_movimentacao="1.1.1.1" tp_operacao="i" ts_movimentacao="2017-12-01 12:00:00" st_registro="0" />
+  <AlbumVO id="9" ano="2008" id_banda="1" nome="Death Magnetic" nr_versao="0" cd_login_movimentacao="1.1.1.1" ds_situacao="N" ip_movimentacao="1.1.1.1" tp_operacao="i" ts_movimentacao="2017-12-01 12:00:00" st_registro="0" />
+  <AlbumVO id="10" ano="2016" id_banda="1" nome="Hardwired... to Self-Destruct" nr_versao="0" cd_login_movimentacao="1.1.1.1" ds_situacao="N" ip_movimentacao="1.1.1.1" tp_operacao="i" ts_movimentacao="2017-12-01 12:00:00" st_registro="0" />
+
+</dataset>
+
+

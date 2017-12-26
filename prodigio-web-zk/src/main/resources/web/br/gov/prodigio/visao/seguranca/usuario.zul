@@ -1,0 +1,102 @@
+<window id="usuariowindow" height="600px" apply="br.gov.prodigio.controle.seguranca.UsuarioCtr">
+	<grid id="barradebotoes"></grid>
+	<selecaobox>
+		<sylistbox id="listaSelecao" rows="10" pageSize="10">
+			<auxhead>
+				<auxheader label="" colspan="5">
+					Id:
+					<intboxarg id="idArg" width="100px"></intboxarg>
+					Nome:
+					<textboxarg id="nomeArg" width="400px"></textboxarg>
+				</auxheader>
+			</auxhead>
+			<listhead id="cabecalho">
+				<listheadersort label="Nome" value="nome" />
+				<listheadersort label="Usuário" value="usuario" />
+				<listheadersort label="Perfil" value="perfilVO.nome" />
+				<listheadersort label="Unidade" value="unidadeCriacao.nome" />
+				<listheadersort label="Cidade" value="unidadeCriacao.cidade" />
+			</listhead>
+			<listitem height="25px">
+				<listcellbind label="nome" />
+				<listcellbind label="usuario" />
+				<listcellbind label="perfilVO" />
+				<listcellbind label="unidadeCriacao.nome" />
+				<listcellbind label="unidadeCriacao.cidade" />
+			</listitem>
+		</sylistbox>
+	</selecaobox>
+	<div id="manutencao" visible="false">
+		<tabbox width="100%">
+			<tabs>
+				<tab label="Mestre"></tab>
+				<tab label="Detalhe"></tab>
+			</tabs>
+			<tabpanels>
+				<tabpanel>
+					<grid>
+						<columns height="100%">
+							<column align="center" valign="top" style="horizontal-align:center" zclass="x" height="100%" width="60%">
+								<grid width="100%" align="right">
+									<rows width="100%">
+										<row>
+											<label value="Nome:" width="10px" style="horizontal-align:right"></label>
+											<textboxbind id="nome" constraint="no empty" maxlength="30" width="300px" validarCampo="true" validarRegra="true"/>
+										</row>
+										<row>
+											<label value="Usuário:" width="10px" style="horizontal-align:right"></label>
+											<textboxbind id="usuario" maxlength="30" width="200px" />
+										</row>
+										<row>
+											<label value="Senha:" width="200px" style="horizontal-align:right"></label>
+											<textboxbind id="senha" type="password" />
+										</row>
+										
+										<row>
+											<label value="CPF:" width="300px" style="horizontal-align:right"></label>
+											<cpfboxbind id="cpf" maxlength="30" width="100px" />		
+										</row>
+			
+										<row>
+											<label value="Perfil:" width="300px" style="horizontal-align:right"></label>
+											<bandboxbind id="perfilVO"></bandboxbind>
+										</row>
+									
+									</rows>
+								</grid>
+							</column>
+							<column width="40%" zclass="x">
+								<grid align="center">
+									<rows>
+										<row align="center" spans="2">
+											<image id="foto" width="200px" height="200px"></image>
+										</row>
+										<row align="center" spans="2">
+											<button label="Anexar" id="anexar" onClick='classecontrole.anexar("foto")' />
+										</row>
+										<row align="left"></row>
+									</rows>
+								</grid>
+							</column>
+						</columns>
+					</grid>
+				</tabpanel>
+				<tabpanel>
+					<detbox width="100%" id="usuarioPerfilVODet">
+						<listboxdet id="usuarioPerfilVO" rows="10" pageSize="10" >
+							<listhead>
+								<listheader label="Nome" value="Nome" />
+							</listhead>
+							<listitem>
+								<listcell>
+									<label value="Perfis:" width="10px"></label>
+									<bandboxbind nomeDoObjeto="usuarioPerfilVO.perfilVO" constraint="no empty"></bandboxbind>
+								</listcell>
+							</listitem>
+						</listboxdet>
+					</detbox>
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
+	</div>
+</window>

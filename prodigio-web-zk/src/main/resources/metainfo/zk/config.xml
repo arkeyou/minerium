@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+<config-name>componentes-prodigio</config-name>
+	<language-config>
+		<addon-uri>/metainfo/zk/lang-addon-prodigio.xml</addon-uri>
+	</language-config>
+</config>

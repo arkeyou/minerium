@@ -1,0 +1,7 @@
+<window width="100%" title="Sessão encerrada" border="normal">
+	<div align="center" style="horizontal-align:center">
+	A página ou componente que você acessou, não esta mais disponível. 
+	Provavelmente a sua sessão ficou muito tempo sem atividade. 
+	<button visible="Iniciar" onClick=""></button>
+	</div>
+</window>

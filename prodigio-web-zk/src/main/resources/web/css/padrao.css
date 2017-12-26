@@ -1,0 +1,251 @@
+.campo-disd {
+	color: black !important;
+	cursor: default !important;
+	opacity: .6;
+	-moz-opacity: .6;
+	filter: alpha(opacity =             60);
+	font-weight: bold;
+}
+
+.campo-disd * {
+	color: black !important;
+	cursor: default !important;
+	font-weight: bold;
+}
+
+.campo {
+	background: white;
+	border: 1px solid #7F9DB9;
+	width: 150px;
+}
+
+.campo-focus,.campo-focus input select {
+	border: 1px solid red;
+}
+
+.campo-text-invalid {
+	background: #FFE6CC;
+	border: 1px solid red;
+}
+
+.campo-readonly,.campo-text-disd {
+	background: #EEEEEE;
+}
+
+.camposimples-disd {
+	color: black !important;
+	cursor: default !important;
+	opacity: .6;
+	-moz-opacity: .6;
+	filter: alpha(opacity =             60);
+	font-weight: bold;
+}
+
+.camposimples-disd * {
+	color: black !important;
+	cursor: default !important;
+	font-weight: bold;
+}
+
+.camposimples {
+	background: white;
+	border: 1px solid #7F9DB9;
+	width: 150px;
+}
+
+.camposimples-focus,.camposimples-focus input select {
+	border: 1px solid red;
+}
+
+.camposimples-text-invalid {
+	background: #FFE6CC;
+	border: 1px solid red;
+}
+
+.camposimples-readonly,.camposimples-text-disd {
+	background: #EEEEEE;
+}
+
+.campodata {
+	background: white;
+	border: 1px solid #7F9DB9;
+	width: 150px
+}
+
+.campomonetario-disd {
+	color: black !important;
+	cursor: default !important;
+	opacity: .6;
+	-moz-opacity: .6;
+	filter: alpha(opacity =             60);
+	font-weight: bold;
+}
+
+.campomonetario-disd * {
+	color: black !important;
+	cursor: default !important;
+	font-weight: bold;
+}
+
+.campomonetario {
+	background: white;
+	border: 1px solid #7F9DB9;
+	width: 150px;
+	text-align: right;
+}
+
+.campomonetario-focus {
+	border: 1px solid red;
+}
+
+.campomonetario-text-invalid {
+	background: #FFE6CC;
+	border: 1px solid red;
+}
+
+.campomonetario-readonly,.campomonetario-text-disd {
+	background: #EEEEEE;
+}
+
+.camponumerico-disd {
+	color: black !important;
+	cursor: default !important;
+	opacity: .6;
+	-moz-opacity: .6;
+	filter: alpha(opacity =             60);
+	font-weight: bold;
+}
+
+.camponumerico-disd * {
+	color: black !important;
+	cursor: default !important;
+	font-weight: bold;
+}
+
+.camponumerico {
+	background: white;
+	border: 1px solid #7F9DB9;
+	width: 150px;
+	text-align: right;
+}
+
+.camponumerico-focus {
+	border: 1px solid red;
+}
+
+.camponumerico-text-invalid {
+	background: #FFE6CC;
+	border: 1px solid red;
+}
+
+.camponumerico-readonly,.camponumerico-text-disd {
+	background: #EEEEEE;
+}
+
+.cell {
+	border-bottom: solid #aaaaff 1px;
+	font-family: verdana;
+	border-right: solid #aaaaff 1px;
+}
+
+.cell-alinhado-centro {
+	border-bottom: solid #aaaaff 1px;
+	border-right: solid #aaaaff 1px;
+	font-family: verdana;
+	text-align: center;
+}
+
+.cell-alinhado-direita {
+	border-bottom: solid #aaaaff 1px;
+	border-right: solid #aaaaff 1px;
+	font-family: verdana;
+	text-align: right;
+}
+
+.cell-cabecalho-centro {
+	border-bottom: solid #aaaaff 1px;
+	border-right: solid #aaaaff 1px;
+	text-align: center;
+	font-family: verdana;
+	font-size: 14px;
+	height: 20px;
+}
+
+.z-listheader-cnt {
+	border-bottom: solid #aaaaff 1px;
+	border-right: solid #aaaaff 1px;
+	font-family: verdana;
+	text-align: center;
+}
+
+div.z-listheader-cnt {
+	font-weight: bold;
+}
+
+.z-listcell {
+	border-bottom: solid #aaaaff 1px;
+	border-right: solid #aaaaff 1px;
+	text-align: center;
+}
+
+.z-listfooter {
+	border-right: solid #aaaaff 1px;
+}
+
+
+div.z-listfooter {
+	text-align: right;
+	font-style: normal;
+	color: green;
+}
+
+
+.cardSys .topic,
+.cardSys .topic .z-label,
+.cardSys .z-window-embedded-header {
+    font-weight: bold;
+    font-size: 14px;
+}
+.cardSys .z-grid,
+.cardSys .z-listbox {
+    border: 1px solid #9F9F9F;
+}
+.cardSys .z-listbox {
+    border-right: 0 none;
+    border-bottom: 0 none;
+}
+.employee-list .z-listcell-cnt {
+    text-align: center;
+}
+.card-pre .card {
+    margin: 70px 50px 50px;
+    text-align: center;
+    width: 300px;
+    height: 168px;
+    -moz-box-shadow: 0px 0px 8px gray;
+    -webkit-box-shadow: 0px 0px 8px gray;
+    box-shadow: 0px 0px 8px gray;
+    background-color: #008BB6; 
+}
+.card-pre .card .title {
+    margin-top: 10px;
+}
+.card-pre .card .title,
+.card-pre .card .z-label {
+    color: white;
+    font-size: 0.95em ;
+    font-family: monospace;
+    text-shadow: 1px 1px 3px #3C3C3C;
+}
+.card-pre .card .name {
+    font-family: monospace;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ECECEC;
+    text-shadow: 1px 1px 3px #3C3C3C;
+}
+.card-pre .card .number {
+    margin-top: 15px;
+    font-size: 12px;
+    color: white;
+}

@@ -1,0 +1,122 @@
+<window id="perfilwindow" apply="br.gov.prodigio.controle.seguranca.PerfilCtr" width="100%" height="450px" maximizable="true" maximized="true" border="none" style="horizontal-align:center;border: 0px solid red; padding: 0px 0px">
+		<style dynamic="true">
+		.campo-disd { color: blue !important; cursor: default !important; opacity: .6; -moz-opacity: .6; filter: alpha(opacity=60); font-weight: bold; } .campo-disd * { color: blue !important; cursor: default !important; font-weight: bold; } .campo { background: white; border: 1px solid
+		#7F9DB9;width:150px } .campo-focus, .campo-focus input select{ border: 1px solid red; } .campo-text-invalid { background: yellow; border: 1px solid red; } .campo-readonly, .campo-text-disd { background: green; } .campodata { background: white; border: 1px solid #7F9DB9;width:150px }
+	</style>
+
+ 
+
+  <zscript>
+    br.gov.prodigio.controle.componente.AppListRender itemRenderer = new br.gov.prodigio.controle.componente.AppListRender();
+ </zscript>
+
+	<grid id="barradebotoes" width="99%"></grid>
+	<div id="selecao"><listbox id="listaSelecao" rows="10" mold="paging" pageSize="10" pagingPosition="top" model="@{classecontrole.listaDeObjetos}" selectedItem="@{classecontrole.objetoAtual}" width="99%" style="border: 1px solid;padding: 0px 0px0px 0px">
+		<auxhead>
+			<auxheader label="" >
+				Nome:
+				<textbox id="nomeArg" value="" onBlur='classecontrole.atualizaObjetoArg(self)'></textbox>
+			</auxheader>
+		</auxhead>
+		<listhead id="cabecalho">
+			<listheader label="Nome" value="Nome" />
+		</listhead>
+		<listitem self="@{each=objeto}" height="25px">
+			<listcell label="@{objeto.nome}" />
+		</listitem>
+	</listbox>
+	</div><div id="manutencao" visible="false" align="center" height="93%" width="100%">
+		<grid pagingPosition="top" width="100%" align="center" style="horizontal-align:center">
+			<columns height="100%">
+				<column align="center" valign="top" style="horizontal-align:center" zclass="x" height="100%" width="60%">
+					<grid width="100%" align="right">
+						<rows width="100%">
+							<row>
+								<label value="Nome" width="10px" style="horizontal-align:right"></label>
+								<textbox id="nome" constraint="no empty" maxlength="30" width="400px" zclass="campo" value="@{classecontrole.objetoAtual.nome,save-when=salvar.onClick}" />
+							</row>
+						</rows>
+					</grid>
+				</column>
+			</columns>
+		</grid>
+		<div align="left">
+			<grid align="right" width="99%" fixedLayout="true">
+				<rows>
+					<group label="Acessos" open="false"/>
+					<row>
+						<div width="100%" align="right">
+							<button width="5%" label="Novo" id="novoDetalhe" onClick='classecontrole.novoDetalhe("perfilCasoDeUsoDet")' />
+							<button width="5%" label="Excluir" id="excluiDetalhe" onClick='classecontrole.excluiDetalhe("perfilCasoDeUsoDet")' />
+						</div>
+					</row>
+					<row>
+						<listbox id="perfilCasoDeUsoDet" rows="3" mold="paging"  pageSize="3" pagingPosition="top" model="@{classecontrole.objetoAtual.perfilCasoDeUso}" style="border: 1px solid;padding: 0px 0px0px 0px;">
+							<listhead id="cabecalhoDepen">
+								<listheader label="Nome" value="Nome" />
+							</listhead>
+							<listitem self="@{each=perfilcasodeuso}" height="25px" >
+								<listcell >
+									<label value="Nome:" width="100px" style="horizontal-align:right"></label>
+									<listbox id="casoDeUsoVO" zclass="campo" width="500px" mold="select" selectedItem="@{perfilcasodeuso.casoDeUsoVO,save-when=salvar.onClick,converter=br.gov.prodigio.controle.componente.AppSelectedItemConverter}" model="@{classecontrole.listaCasoDeUso}" />
+								</listcell>
+							</listitem>
+						</listbox>
+					</row>
+				</rows>
+			</grid>
+		</div>
+		<div align="left">
+			<grid align="right" width="99%" fixedLayout="true">
+				<rows>
+					<group label="Unidades" open="false"/>
+					<row>
+						<div width="100%" align="right">
+							<button width="5%" label="Novo" id="novoDetalhe2" onClick='classecontrole.novoDetalhe("perfilUnidadeDet")' />
+							<button width="5%" label="Excluir" id="excluiDetalhe2" onClick='classecontrole.excluiDetalhe("perfilUnidadeDet")' />
+						</div>
+					</row>
+					<row>
+						<listbox id="perfilUnidadeDet" rows="3" mold="paging"  pageSize="3" pagingPosition="top" model="@{classecontrole.objetoAtual.perfilUnidade}" style="border: 1px solid;padding: 0px 0px0px 0px;">
+							<listhead>
+								<listheader label="Nome" value="Nome" />
+							</listhead>
+							<listitem self="@{each=perfilunidade}" height="25px" >
+								<listcell >
+									<label value="Nome:" width="10px" style="horizontal-align:right"></label>
+									<listbox id="unidadeVO" zclass="campo" width="250px" mold="select" focus="true" selectedItem="@{perfilunidade.unidadeVO,save-when=salvar.onClick,converter=br.gov.prodigio.controle.componente.AppSelectedItemConverter}" model="@{classecontrole.listaUnidade}" />
+								</listcell>
+							</listitem>
+						</listbox>
+					</row>
+				</rows>
+			</grid>
+		</div>
+		<div align="left">
+			<grid align="right" width="99%" fixedLayout="true">
+				<rows>
+					<group label="Funções" open="false"/>
+					<row>
+						<div width="100%" align="right">
+							<button width="5%" label="Novo" id="novoDetalhe3" onClick='classecontrole.novoDetalhe("perfilFuncoesDet")' />
+							<button width="5%" label="Excluir" id="excluiDetalhe3" onClick='classecontrole.excluiDetalhe("perfilFuncoesDet")' />
+						</div>
+					</row>
+					<row>
+						<listbox id="perfilFuncoesDet" rows="3" mold="paging"  pageSize="3" pagingPosition="top" model="@{classecontrole.objetoAtual.perfilFuncoes}" style="border: 1px solid;padding: 0px 0px0px 0px;">
+							<listhead>
+								<listheader label="Nome" value="Nome" />
+							</listhead>
+							<listitem self="@{each=perfilfuncao}" height="25px" >
+								<listcell >
+									<label value="Função:" width="10px" style="horizontal-align:right"></label>
+									<listbox id="funcao" zclass="campo" width="250px" mold="select" focus="true" selectedItem="@{perfilfuncao.funcao,save-when=salvar.onClick}" model="@{classecontrole.listaFuncao}" />
+								</listcell>
+							</listitem>
+						</listbox>
+					</row>
+				</rows>
+			</grid>
+		</div>
+	</div>
+</window>

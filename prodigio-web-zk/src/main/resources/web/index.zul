@@ -1,0 +1,28 @@
+<zk xmlns:w="http://www.zkoss.org/2005/zk/client">
+<?script type="text/javascript" src="~./js/jquery-1.3.2.js"?>
+<?script type="text/javascript" src="~./js/jquery.maskedinput-1.2.2.js"?>
+<?script type="text/javascript" src="~./js/jquery.price_format.js"?>
+<?script type="text/javascript" src="~./js/jquery.autotab-1.1b.js"?>
+<?script type="text/javascript" src="~./js/mascara.js"?>
+<style  src="~./css/padrao.css"/>
+<window id="index" apply="br.gov.prodigio.controle.WindowPrincipal" width="100%" height="100%" border="none" style="horizontal-align:left;border: 0px solid yellow; padding: 0px 0px 0px 0px">
+	<groupbox mold="3d" width="100%" height="15%" >
+		<caption style="align:left"></caption>
+		<div id="cabecalho"  width="100%" height="100%" align="center" style="background-image:url(~./imagem/cabecalho.png);background-repeat:repeat;">
+			<label value="GRP-MG" style="color:black;font-size:30px" id="labelCabecalho"/>
+			<label id="nomeUsuarioCabecalho" width="120px" ></label>
+		</div>
+	</groupbox>
+	<groupbox mold="3d" width="100%" height="75%" style="horizontal-align:center;border: 0px solid green; padding: 0px 0px 0px 0px;">
+		<include id="introducao" src="~./login.zul" height="100%" style="horizontal-align:center;border: 0px solid gray; padding: 0px 0px 0px 0px;" width="100%"></include>
+	</groupbox>
+	<groupbox mold="3d" width="100%" height="10%" style="background-image:url(~./imagem/cabecalho.png);background-repeat:repeat;" >
+		<div id="rodape" width="100%" height="50%" align="center" >
+			<label value="" style="color:black;font-size:15px" id="labelRodape"/>
+		</div>
+		<div width="100%" height="50%" align="right" >
+			<button label="Sair" width="120px" onClick="index.logout()" ></button>
+		</div>
+	</groupbox>
+</window>
+</zk>
