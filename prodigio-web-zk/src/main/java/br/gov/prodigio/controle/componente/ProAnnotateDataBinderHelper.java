@@ -1060,4 +1060,34 @@ public class ProAnnotateDataBinderHelper {
 		return proAnnotateEspecializadoHelper;
 	}
 
+	public void adicionaAnotacaoParaBarcodeImagem(CodigoDeBarrasBind codigoDeBarrasBind) {
+
+		String expressao = codigoDeBarrasBind.getNomeDoObjeto();
+		Map ann = new HashMap();
+		ann.put("value", expressao);
+		ann.put("converter", CodigoDeBarrasConverter.class.getName());
+		codigoDeBarrasBind.getImagem().addAnnotation("content", "default", ann);
+
+		String[] nodosDaExpressao = expressao.split("\\.");
+		int lengthNodosDaExpressao = nodosDaExpressao.length;
+		String nomeDoObjetoDonoDoAtributo = "";
+		for (int i = 0; i < (lengthNodosDaExpressao - 1); i++) {
+			nomeDoObjetoDonoDoAtributo = nomeDoObjetoDonoDoAtributo + "." + nodosDaExpressao[i];
+		}
+		nomeDoObjetoDonoDoAtributo = nomeDoObjetoDonoDoAtributo.substring(1);
+
+		Map annBand2 = new HashMap();
+		annBand2.put("value", nomeDoObjetoDonoDoAtributo);
+		annBand2.put("save-when", "none");
+		annBand2.put("load-when", "none");
+		codigoDeBarrasBind.addAnnotation("objectPai", "default", annBand2);
+
+		String nomeDoAtributo = nodosDaExpressao[lengthNodosDaExpressao - 1];
+		Map annBand3 = new HashMap();
+		annBand3.put("content", nomeDoAtributo);
+		annBand3.put("save-when", "none");
+		annBand3.put("load-when", "none");
+
+	}
+
 }
