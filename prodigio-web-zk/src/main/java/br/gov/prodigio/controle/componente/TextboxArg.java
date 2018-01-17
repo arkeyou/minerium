@@ -22,6 +22,10 @@ import org.zkoss.zul.Window;
 
 import br.gov.prodigio.controle.ProCtr;
 
+/**
+ * @deprecated A partir da versão 8.1.001, substituído por {@link TextboxBind}
+ */
+@Deprecated
 public class TextboxArg extends Textbox implements AfterCompose {
 
 	/**

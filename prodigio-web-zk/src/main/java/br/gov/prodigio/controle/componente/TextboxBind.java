@@ -28,9 +28,6 @@ import br.gov.prodigio.controle.ProCtr;
 
 public class TextboxBind extends Textbox implements AfterCompose, FieldValidator {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 7424727966318992050L;
 	private String mask;
 	private Boolean validarRegra;
