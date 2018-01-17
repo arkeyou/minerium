@@ -407,7 +407,7 @@
 		<component-class>br.gov.prodigio.controle.componente.ButtonDeleteDownloadBind
 		</component-class>
 	</component>
-	
+
 	<component>
 		<extends>checkbox</extends>
 		<component-name>checkboxbind</component-name>
@@ -577,6 +577,26 @@
 		<component-class>br.gov.prodigio.controle.componente.ButtonRelatorioExcelBind</component-class>
 		<extends>button</extends>
 	</component>
-	
+
+	<component>
+		<extends>div</extends>
+		<component-name>codigodebarrasbind</component-name>
+		<component-class>
+			br.gov.prodigio.controle.componente.CodigoDeBarrasBind
+			<annotation>
+				<annotation-name>default-bind</annotation-name>
+				<property-name>content</property-name>
+				<attribute>
+					<attribute-name>access</attribute-name>
+					<attribute-value>both</attribute-value>
+				</attribute>
+				<attribute>
+					<attribute-name>converter</attribute-name>
+					<attribute-value>br.gov.prodigio.controle.componente.CodigoDeBarrasConverter
+					</attribute-value>
+				</attribute>
+			</annotation>
+		</component-class>
+	</component>
 
 </language-addon>

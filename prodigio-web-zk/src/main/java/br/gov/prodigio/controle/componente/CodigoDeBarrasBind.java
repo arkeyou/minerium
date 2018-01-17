@@ -16,91 +16,41 @@
  *******************************************************************************/
 package br.gov.prodigio.controle.componente;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.ext.AfterCompose;
-import org.zkoss.zul.Textbox;
+import org.zkoss.zul.Div;
+import org.zkoss.zul.Image;
 import org.zkoss.zul.Window;
 
 import br.gov.prodigio.controle.ProCtr;
 
-public class TextboxBind extends Textbox implements AfterCompose, FieldValidator {
+public class CodigoDeBarrasBind extends Div implements AfterCompose, FieldValidator {
 
-	private static final long serialVersionUID = 7424727966318992050L;
-	private String mask;
-	private Boolean validarRegra;
-	private Boolean validarCampo;
+	private static final long serialVersionUID = 4353376494066356771L;
+	private Object objectPai;
+	private Object rootObject;
+	private String converter;
+	private String identificador;
+	private String atributoQueSeraVisualizado;
 	private String nomeDoObjeto;
-	private Object object = null;
-	private Boolean upper = true;
-	private Boolean paste = true;
-	private String validarQuando = "";
+	private Object object;
+	private Image imagem;
+	private String width;
+	private String height;
+	private String formato = "QR_CODE"; // UPC_A | UPC_E | EAN_13 | EAN_8 | CODABAR | QR_CODE
 
-	@Override
+	@SuppressWarnings("rawtypes")
 	public void afterCompose() {
+		imagem = new Image();
+		imagem.setWidth(this.getWidth());
+		imagem.setHeight(this.getHeight());
 		Window window = ProCtr.findWindow(this);
 		ProCtr ctr = (ProCtr) window.getAttribute(window.getId() + "$" + "composer");
-		ctr.getProAnnotateDataBinderHelper().adicionaAnotacaoParaCampoTexto(this);
-		GenericConstraint.configuraConstraint(this);
-		this.setSclass("form-control");
-	}
+		ctr.getProAnnotateDataBinderHelper().adicionaAnotacaoParaBarcodeImagem(this);
+		this.appendChild(imagem);
 
-	public Boolean getPaste() {
-		return paste;
-	}
-
-	public void setPaste(Boolean paste) {
-		this.paste = paste;
-	}
-
-	public String getMask() {
-		return mask;
-	}
-
-	public void setMask(String mask) {
-		this.mask = mask;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see br.gov.prodigio.controle.componente.FieldValidator#getValidarRegra()
-	 */
-	@Override
-	public Boolean getValidarRegra() {
-		return validarRegra;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see br.gov.prodigio.controle.componente.FieldValidator#setValidarRegra(java.lang.Boolean)
-	 */
-	@Override
-	public void setValidarRegra(Boolean validarRegra) {
-		this.validarRegra = validarRegra;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see br.gov.prodigio.controle.componente.FieldValidator#getValidarCampo()
-	 */
-	@Override
-	public Boolean getValidarCampo() {
-		return validarCampo;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see br.gov.prodigio.controle.componente.FieldValidator#setValidarCampo(java.lang.Boolean)
-	 */
-	@Override
-	public void setValidarCampo(Boolean validarCampo) {
-		this.validarCampo = validarCampo;
 	}
 
 	public String getNomeDoObjeto() {
@@ -129,20 +79,30 @@ public class TextboxBind extends Textbox implements AfterCompose, FieldValidator
 		this.objectPai = objectPai;
 	}
 
-	private Object objectPai;
-	private Object rootObject;
-	private String converter;
-	private String dependeDoComponente;
-	private Map<String, Component> componentsDependentes = null;
-	private String identificador;
-	private String atributoQueSeraVisualizado;
+	
 
-	public Boolean getUpper() {
-		return upper;
+	public Image getImagem() {
+		return imagem;
 	}
 
-	public void setUpper(Boolean upper) {
-		this.upper = upper;
+	public void setImagem(Image imagem) {
+		this.imagem = imagem;
+	}
+
+	public String getWidth() {
+		return width;
+	}
+
+	public void setWidth(String width) {
+		this.width = width;
+	}
+
+	public String getHeight() {
+		return height;
+	}
+
+	public void setHeight(String height) {
+		this.height = height;
 	}
 
 	@Override
@@ -165,23 +125,24 @@ public class TextboxBind extends Textbox implements AfterCompose, FieldValidator
 		this.converter = converter;
 	}
 
+	@Override
 	public String getDependeDoComponente() {
-		return dependeDoComponente;
+		return null;
 	}
 
+	@Override
 	public void setDependeDoComponente(String dependeDoComponent) {
-		this.dependeDoComponente = dependeDoComponent;
+
 	}
 
+	@Override
+	public void addComponentesDependentes(String nomeDoObjeto, Component field) {
+
+	}
+
+	@Override
 	public Map<String, Component> recuperaComponentesDependentes() {
-		return componentsDependentes;
-	}
-
-	public void addComponentesDependentes(String nomeComponent, Component component) {
-		if (this.componentsDependentes == null) {
-			this.componentsDependentes = new HashMap<String, Component>();
-		}
-		this.componentsDependentes.put(nomeComponent, component);
+		return null;
 	}
 
 	@Override
@@ -203,12 +164,48 @@ public class TextboxBind extends Textbox implements AfterCompose, FieldValidator
 		this.atributoQueSeraVisualizado = atributoQueSeraVisualizado;
 	}
 
-	public String getValidarQuando() {
-		return validarQuando;
+	public String getFormato() {
+		return formato;
 	}
 
+	public void setFormato(String formato) {
+		this.formato = formato;
+	}
+
+	@Override
+	public Boolean getValidarRegra() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setValidarRegra(Boolean validarRegra) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Boolean getValidarCampo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setValidarCampo(Boolean validarCampo) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public String getValidarQuando() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
 	public void setValidarQuando(String validarQuando) {
-		this.validarQuando = validarQuando;
+		// TODO Auto-generated method stub
+
 	}
 
 }

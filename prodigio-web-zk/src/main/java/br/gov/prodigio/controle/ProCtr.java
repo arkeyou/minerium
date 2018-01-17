@@ -2132,7 +2132,7 @@ public class ProCtr<ENTITY extends ProBaseVO> extends GenericForwardComposer {
 	public void adicionaElementosNaSelcao(SelecaoBox selecaoBox) {
 
 		Div container = new Div();
-		container.setSclass("container-fluid");
+		container.setSclass("paginacao container-fluid");
 
 		Div row1 = new Div();
 		row1.setSclass("row");
