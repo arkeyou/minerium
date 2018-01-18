@@ -39,7 +39,7 @@ public class CodigoDeBarrasBind extends Div implements AfterCompose, FieldValida
 	private Image imagem;
 	private String width;
 	private String height;
-	private String formato = "QR_CODE"; // UPC_A | UPC_E | EAN_13 | EAN_8 | CODABAR | QR_CODE
+	private String formato = "QR_CODE"; // UPC_A | UPC_E | EAN_13 | EAN_8 | QR_CODE
 
 	@SuppressWarnings("rawtypes")
 	public void afterCompose() {

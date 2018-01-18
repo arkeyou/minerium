@@ -14,7 +14,7 @@
  * a qualquer MERCADO ou APLICAÇÃO EM PARTICULAR. 
  * Ver arquivo LICENSE.md no diretório raiz ou acessar <https://www.gnu.org/licenses/lgpl.html>
  *******************************************************************************/
-/** * Classe criada em 01/01/2010 * Este código pode ser usado apenas para fins não comerciais * @author Sândalo Bessa */
+
 package br.gov.prodigio.controle;
 
 import java.net.URISyntaxException;

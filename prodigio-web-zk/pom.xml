@@ -128,21 +128,13 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		
+
 		<!-- ZK PE -->
-		<!-- <dependency>
-			<groupId>org.zkoss.zk</groupId>
-			<artifactId>zkex</artifactId>
-			<version>${version.zk}</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>org.zkoss.zk</groupId> <artifactId>zkex</artifactId> <version>${version.zk}</version> </dependency> -->
 		<!-- ZK EE -->
-		<!-- <dependency>
-			<groupId>org.zkoss.zk</groupId>
-			<artifactId>zkmax</artifactId>
-			<version>${version.zk}</version>
-		</dependency> -->
-		
-		 <dependency>
+		<!-- <dependency> <groupId>org.zkoss.zk</groupId> <artifactId>zkmax</artifactId> <version>${version.zk}</version> </dependency> -->
+
+		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkplus</artifactId>
 			<version>${version.zk.mod}</version>
@@ -155,11 +147,7 @@
 			</exclusions>
 		</dependency>
 		<!-- NA VERSÃO CE, SOMENTE NO ZK3 -->
-		<!-- <dependency>
-			<groupId>org.zkoss.zk</groupId>
-			<artifactId>zml</artifactId>
-			<version>3.6.4</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>org.zkoss.zk</groupId> <artifactId>zml</artifactId> <version>3.6.4</version> </dependency> -->
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zul</artifactId>
@@ -172,12 +160,8 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<!-- ZK EE --> 
-		<!-- <dependency>
-			<groupId>org.zkoss.zk</groupId>  
-			<artifactId>zuti</artifactId>
-			<version>${version.zk}</version>
-		</dependency> -->
+		<!-- ZK EE -->
+		<!-- <dependency> <groupId>org.zkoss.zk</groupId> <artifactId>zuti</artifactId> <version>${version.zk}</version> </dependency> -->
 		<dependency>
 			<groupId>org.zkoss.common</groupId>
 			<artifactId>zweb</artifactId>
@@ -350,6 +334,18 @@
 		</dependency>
 		<!-- Fim Itext -->
 		<!-- <dependency> <groupId>org.zkoss.addons</groupId> <artifactId>zk-bootstrap</artifactId> <version>1.0.0</version> </dependency> -->
+		<!-- barcode -->
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>core</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>javase</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+		<!-- Fim barcode -->
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
