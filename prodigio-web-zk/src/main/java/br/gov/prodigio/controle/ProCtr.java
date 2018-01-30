@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Stream;
 
 import javax.persistence.OneToMany;
 import javax.validation.ConstraintViolation;
@@ -183,7 +184,8 @@ public class ProCtr<ENTITY extends ProBaseVO> extends GenericForwardComposer {
 		configurafachadaDeNegocio(tela);
 
 		// TODO (glauco.cardoso) fazer de uma forma melhor
-		// listaDeObjetos.add(instanciaNovoObjeto());// Apenas para montar uma linha na tela de selação
+		// listaDeObjetos.add(instanciaNovoObjeto());// Apenas para montar uma
+		// linha na tela de selação
 		if (getObjetoAtual() == null) {
 			this.objetoAtual = instanciaNovoObjeto();
 		}
@@ -192,7 +194,10 @@ public class ProCtr<ENTITY extends ProBaseVO> extends GenericForwardComposer {
 		configuraListaDeUnidades(tela);
 		configuraUsuarioLogado(tela);
 
-		if (getObjetoAtualArg() == null) {// Pode ter sido iniciarlizado no metodo inicializaObjetoArg. Hoje é chamado na criação de Bandboxbind
+		if (getObjetoAtualArg() == null) {// Pode ter sido iniciarlizado no
+											// metodo inicializaObjetoArg. Hoje
+											// é chamado na criação de
+											// Bandboxbind
 			ENTITY pArg = newObject();
 			setObjetoAtualArg(pArg);
 		}
@@ -303,8 +308,19 @@ public class ProCtr<ENTITY extends ProBaseVO> extends GenericForwardComposer {
 			Clients.clearBusy();
 		} catch (Exception e) {
 			log.error("Erro ao pesquisar", e);
-			getMessagesHelper().emiteMensagemErro(e.getMessage());
+			getMessagesHelper().emiteMensagemErro(retornarErroRaiz(e).getMessage());
 		}
+	}
+
+	/**
+	 * RETORNA PRIMEIRA CAUZA RAIZ DE ERRO QUE FOI ENCAPSULADO EM UMA EXCEPTION.
+	 * 
+	 * @param e
+	 *            exception lançada.
+	 * @return {@link Throwable} causa raiz
+	 */
+	private Throwable retornarErroRaiz(Exception e) {
+		return Stream.iterate(e, Throwable::getCause).filter(element -> element.getCause() == null).findFirst().orElse(null);
 	}
 
 	public void pesquisar(int activePage, int pageSize) {
@@ -343,7 +359,7 @@ public class ProCtr<ENTITY extends ProBaseVO> extends GenericForwardComposer {
 			}
 		} catch (Exception e) {
 			log.error("Erro ao pesquisar", e);
-			getMessagesHelper().emiteMensagemErro(e.getMessage());
+			getMessagesHelper().emiteMensagemErro(retornarErroRaiz(e).getMessage());
 		}
 	}
 
@@ -458,7 +474,8 @@ public class ProCtr<ENTITY extends ProBaseVO> extends GenericForwardComposer {
 
 	private void validaComponenteInput(Component component) {
 
-		// Validação apenas para os componentes customizados da arquitetura de base
+		// Validação apenas para os componentes customizados da arquitetura de
+		// base
 		if (component instanceof FieldValidator && component instanceof InputElement) {
 			// habilita o componente para uma nova validação
 			((InputElement) component).clearErrorMessage(true);
@@ -537,6 +554,7 @@ public class ProCtr<ENTITY extends ProBaseVO> extends GenericForwardComposer {
 			}
 		}
 	}
+
 
 	public static void iniciarProcessoAssinaturaDigital() {
 		String mutex = "";
@@ -994,7 +1012,8 @@ public class ProCtr<ENTITY extends ProBaseVO> extends GenericForwardComposer {
 						} else {
 							argumento = getHelperView().recuperaValorDaTela(nomeCampo + "Arg", getWindowAtual());
 						}
-						if (argumento instanceof ProVO) {// Para pesquisa basta o id.
+						if (argumento instanceof ProVO) {// Para pesquisa basta
+															// o id.
 							argumento = argumento.getClass().newInstance();
 							Long id = ((ProVO) argumento).getId();
 							((ProVO) argumento).setDsSituacao(null);
@@ -1350,10 +1369,13 @@ public class ProCtr<ENTITY extends ProBaseVO> extends GenericForwardComposer {
 		 */
 	}
 
-	// private void imprimeParaTablets(byte[] pdfBytes) throws FileNotFoundException, IOException {
-	// HttpServletRequest request = (HttpServletRequest) Executions.getCurrent().getNativeRequest();
+	// private void imprimeParaTablets(byte[] pdfBytes) throws
+	// FileNotFoundException, IOException {
+	// HttpServletRequest request = (HttpServletRequest)
+	// Executions.getCurrent().getNativeRequest();
 	// request.getSession().setAttribute("impressao", pdfBytes);
-	// Clients.evalJavaScript("window.open('impressao.jsp','" + getObjetoAtual() + "','fullscreen=yes')");
+	// Clients.evalJavaScript("window.open('impressao.jsp','" + getObjetoAtual()
+	// + "','fullscreen=yes')");
 	// }
 
 	public void configuraOrdenacao(Listheader listheader) {
