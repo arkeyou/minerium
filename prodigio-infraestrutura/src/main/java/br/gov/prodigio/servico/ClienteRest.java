@@ -72,8 +72,8 @@ import org.apache.http.util.EntityUtils;
 
 import br.gov.prodigio.comuns.utils.CollectionHelper;
 import br.gov.prodigio.comuns.utils.StringHelper;
-import br.gov.prodigio.json.ProJSONDeserializer;
-import br.gov.prodigio.json.ProObjectFactory;
+/*import br.gov.prodigio.json.ProJSONDeserializer;
+import br.gov.prodigio.json.ProObjectFactory;*/
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -97,7 +97,7 @@ public final class ClienteRest {
 	private String charsetRequest = StandardCharsets.UTF_8.name();
 	private boolean usaProxy;
 	private ArrayList<String> bypass;
-	private ProJSONDeserializer<?> jsonDeserializer = null;
+	//private ProJSONDeserializer<?> jsonDeserializer = null;
 	private Class<?> classeRetorno;
 
 	/**
@@ -265,7 +265,7 @@ public final class ClienteRest {
 
 		if (classeRetorno != null) {
 			try {
-				return jsonDeserializer.deserialize(retornoString, classeRetorno);
+				return null;//jsonDeserializer.deserialize(retornoString, classeRetorno);
 			} catch (Exception e) {
 				ObjectMapper objectMapper = new ObjectMapper();
 				return objectMapper.readValue(retornoString, classeRetorno);
@@ -500,14 +500,14 @@ public final class ClienteRest {
 			throw new IllegalArgumentException("A classe de retorno na foi informada!");
 		}
 		this.classeRetorno = classeRetorno;
-		this.jsonDeserializer = new ProJSONDeserializer();
+		/*this.jsonDeserializer = new ProJSONDeserializer();
 		if (mapInterfaceResolver != null) {
 			Set<Entry<Class, Class>> entrySet = mapInterfaceResolver.entrySet();
 			ProObjectFactory factory = new ProObjectFactory();
 			for (Entry<Class, Class> entry : entrySet) {
 				jsonDeserializer.use(entry.getKey(), entry.getValue(), factory);
 			}
-		}
+		}*/
 		return this;
 	}
 

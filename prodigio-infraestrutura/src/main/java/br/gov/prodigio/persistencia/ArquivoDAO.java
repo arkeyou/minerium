@@ -75,8 +75,8 @@ public class ArquivoDAO extends ProBaseDAO {
 			}
 			arquivoVO2.setCaminhoAbsoluto(file.getAbsolutePath());
 			arquivoVO2.setNome(file.getName());
-			arquivoVO2.setUsuarioVO(arquivoVO.getUsuarioVO());
-			arquivoVO2.setUnidadeAdministrativaVO(arquivoVO.getUnidadeAdministrativaVO());
+			//arquivoVO2.setUsuarioVO(arquivoVO.getUsuarioVO());
+			//arquivoVO2.setUnidadeAdministrativaVO(arquivoVO.getUnidadeAdministrativaVO());
 			insereArquivoFilhoNoPai(arquivoVO, arquivoVO2);
 		}
 	}
