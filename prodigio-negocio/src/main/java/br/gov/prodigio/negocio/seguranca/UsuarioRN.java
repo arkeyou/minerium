@@ -16,21 +16,21 @@
  *******************************************************************************/
 package br.gov.prodigio.negocio.seguranca;
 
-import br.gov.prodemge.ssc.interfaces.IUsuario;
+//import br.gov.prodemge.ssc.interfaces.IUsuario;
 import br.gov.prodigio.comuns.anotacoes.RegraDeNegocio;
 import br.gov.prodigio.negocio.ProBaseRN;
 
 public class UsuarioRN extends ProBaseRN {
-	@RegraDeNegocio(autor = "Sândalo Bessa", codigo = "333", ordem = 0, fluxo = "gravar")
+	/*@RegraDeNegocio(autor = "Sândalo Bessa", codigo = "333", ordem = 0, fluxo = "gravar")
 	public void teste(IUsuario usuario) {
 		System.out.println("Teste");
-	}
+	}*/
 
-	@RegraDeNegocio(autor = "Sândalo Bessa", codigo = "333", ordem = 0, fluxo = "validar")
+	/*@RegraDeNegocio(autor = "Sândalo Bessa", codigo = "333", ordem = 0, fluxo = "validar")
 	public void validarNome(IUsuario usuario) {
 		if (usuario != null && usuario.getNome().equals("MARIA")) {
 			throw new RuntimeException("De acordo com o cadastro de nomes, esse nome não é valido");
 		}
-	}
+	}*/
 
 }
