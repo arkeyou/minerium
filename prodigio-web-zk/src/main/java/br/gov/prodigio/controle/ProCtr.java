@@ -2470,8 +2470,8 @@ public class ProCtr<ENTITY extends ProBaseVO> extends GenericForwardComposer {
 
 	public void montaExemploParaPesquisaDeArquivos(ArquivoVO example) {
 		example.setCaminhoAbsoluto(example.getCaminhoAbsoluto());
-		example.setUsuarioVO(getUsuarioVO());
-		example.setUnidadeAdministrativaVO(getUnidadeAdministrativaVO());
+		//example.setUsuarioVO(getUsuarioVO());
+		//example.setUnidadeAdministrativaVO(getUnidadeAdministrativaVO());
 	}
 
 	public void limpar() {

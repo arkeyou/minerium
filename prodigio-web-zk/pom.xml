@@ -134,7 +134,7 @@
 		<!-- ZK EE -->
 		<!-- <dependency> <groupId>org.zkoss.zk</groupId> <artifactId>zkmax</artifactId> <version>${version.zk}</version> </dependency> -->
 
-		<dependency>
+		<!-- dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkplus</artifactId>
 			<version>${version.zk.mod}</version>
@@ -145,7 +145,13 @@
 					<artifactId>zul</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency -->
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zkplus</artifactId>
+			<version>${version.zk}</version>
 		</dependency>
+		
 		<!-- NA VERSÃO CE, SOMENTE NO ZK3 -->
 		<!-- <dependency> <groupId>org.zkoss.zk</groupId> <artifactId>zml</artifactId> <version>3.6.4</version> </dependency> -->
 		<dependency>
@@ -255,16 +261,16 @@
 		</dependency>
 		<!--Fim ZK ext -->
 		<!-- ZK Forge -->
-		<dependency>
+		<!-- dependency>
 			<groupId>org.zkoss.addon</groupId>
 			<artifactId>flashchart</artifactId>
 			<version>${flashchart.version}</version>
-		</dependency>
-		<dependency>
+		</dependency -->
+		<!-- dependency>
 			<groupId>org.zkoss.zkforge</groupId>
 			<artifactId>gmapsz</artifactId>
 			<version>${gmapsz.version}</version>
-		</dependency>
+		</dependency -->
 		<dependency>
 			<groupId>org.zkoss.zkforge</groupId>
 			<artifactId>timelinez</artifactId>
@@ -275,22 +281,22 @@
 			<artifactId>timeplotz</artifactId>
 			<version>${timeplotz.version}</version>
 		</dependency>
-		<dependency>
+		<!-- dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zuljsp</artifactId>
 			<version>${zuljsp.version}</version>
-		</dependency>
+		</dependency -->
 		<!-- Fim ZK Forge -->
-		<dependency>
+		<!-- dependency>
 			<groupId>com.kenai</groupId>
 			<artifactId>constantine</artifactId>
 			<version>0.2</version>
-		</dependency>
-		<dependency>
+		</dependency -->
+		<!--  dependency>
 			<groupId>org.zkoss.zkforge</groupId>
 			<artifactId>ckez</artifactId>
 			<version>${ckez.version}</version>
-		</dependency>
+		</dependency -->
 		<!-- ZK theme -->
 		<dependency>
 			<groupId>org.zkoss.theme</groupId>
@@ -302,25 +308,41 @@
 			<artifactId>silvertail</artifactId>
 			<version>${version.zk}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.zkoss.addons</groupId>
-			<artifactId>zk-bootstrap</artifactId>
-			<version>1.0.0</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>zul</artifactId>
-					<groupId>org.zkoss.zk</groupId>
-				</exclusion>
-				<exclusion>
+		<!-- dependency>
+		    <groupId>org.zkoss.addons</groupId>
+		    <artifactId>zk-bootstrap</artifactId>
+		    <version>1.0.0</version>
+		    <exclusions>
+        		<exclusion> 
+          			<groupId>org.zkoss.zk</groupId>
+          			<artifactId>zul</artifactId>
+        		</exclusion>
+        		<exclusion> 
+          			<groupId>javax.servlet</groupId>
+					<artifactId>servlet-api</artifactId>
+        		</exclusion>
+        		<exclusion> 
+		        	<groupId>org.zkoss.zk</groupId>
 					<artifactId>zkmax</artifactId>
+        		</exclusion>
+        		<exclusion> 
+        			<groupId>commons-io</groupId>
+					<artifactId>commons-io</artifactId>
+        		</exclusion>
+        		<exclusion>
 					<groupId>org.zkoss.zk</groupId>
+					<artifactId>zkex</artifactId>
 				</exclusion>
 				<exclusion>
-					<artifactId>zkex</artifactId>
-					<groupId>org.zkoss.zk</groupId>
+					<groupId>commons-io</groupId>
+					<artifactId>commons-io</artifactId>
 				</exclusion>
-			</exclusions>
-		</dependency>
+				<exclusion>
+					<groupId>org.zkoss.theme</groupId>
+					<artifactId>breeze</artifactId>
+				</exclusion>
+      		</exclusions>
+		</dependency -->
 		<!-- Itext -->
 		<dependency>
 			<groupId>com.itextpdf</groupId>

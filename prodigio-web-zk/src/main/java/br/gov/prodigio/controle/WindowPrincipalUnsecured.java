@@ -128,7 +128,7 @@ public class WindowPrincipalUnsecured extends GenericForwardComposer {
 			return null;
 		}
 
-		@Override
+		//@Override
 		public String getCnpj() {
 			return null;
 		}

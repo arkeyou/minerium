@@ -147,7 +147,7 @@ public class ProAnnotateDataBinder extends AnnotateDataBinder {
 		}
 	}
 
-	@Override
+	//@Override
 	protected Object beforeGetFields(Object bean, String beanid) {
 		if (bean instanceof Collection) {
 			Collection collection = (Collection) bean;
@@ -158,7 +158,7 @@ public class ProAnnotateDataBinder extends AnnotateDataBinder {
 		return bean;
 	}
 
-	@Override
+	//@Override
 	protected Object afterGetFields(Object bean, Object beanChild, String beanid) {
 		ProCtr<ProBaseVO> proCtr = (ProCtr<ProBaseVO>) window.getAttribute("$composer");
 		SelecaoBox selecaoBox = (SelecaoBox) proCtr.getTela().getFellowIfAny("selecao");
@@ -180,7 +180,8 @@ public class ProAnnotateDataBinder extends AnnotateDataBinder {
 						try {
 							ManyToOne annotation = method.getAnnotation(ManyToOne.class);
 							if (annotation != null) {
-								return super.afterGetFields(bean, beanChild, beanid);
+								//return super.afterGetFields(bean, beanChild, beanid);
+								return afterGetFields(bean, beanChild, beanid);
 							}
 							beanChild = Reflexao.recuperaValorDaPropriedade(beanid, bean);
 							if (beanChild == null) {
@@ -208,19 +209,21 @@ public class ProAnnotateDataBinder extends AnnotateDataBinder {
 				log.error("Erro ao inicializar o objeto ", e);
 			}
 		}
-		return super.afterGetFields(bean, beanChild, beanid);
+		//return super.afterGetFields(bean, beanChild, beanid);
+		return afterGetFields(bean, beanChild, beanid);
 	}
 
 	private boolean estaEmModoDeEdicao(SelecaoBox selecaoBox) {
 		return selecaoBox != null && !selecaoBox.isVisible();
 	}
 
-	@Override
+	//@Override
 	protected boolean fetchByDefault(Component comp) {
 		if (comp instanceof FieldValidator) {
 			return false;
 		}
-		return super.fetchByDefault(comp);
+		//return super.fetchByDefault(comp);
+		return fetchByDefault(comp);
 	}
 
 	@Override
