@@ -16,14 +16,14 @@
  *******************************************************************************/
 package br.gov.prodigio.comuns.auditoria;
 
-import org.hibernate.envers.RevisionListener;
+//import org.hibernate.envers.RevisionListener;
 
 import br.gov.prodigio.comuns.utils.Context;
 import br.gov.prodigio.entidades.ProVO;
 
-public class ProRevisionListener implements RevisionListener {
+public class ProRevisionListener /*implements RevisionListener*/ {
 
-	@Override
+	/*@Override
 	public void newRevision(Object arg0) {
 
 		ProAuditoriaVO auditoria = (ProAuditoriaVO) arg0;
@@ -32,5 +32,5 @@ public class ProRevisionListener implements RevisionListener {
 			appVO = (ProVO) Context.getAttribute("objetoAtual");
 		auditoria.setCdLoginUsuario(appVO.getCdLoginMovimentacao());
 
-	}
+	}*/
 }

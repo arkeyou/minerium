@@ -21,7 +21,7 @@ import java.io.Serializable;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
 
-import org.hibernate.envers.RevisionTimestamp;
+//import org.hibernate.envers.RevisionTimestamp;
 
 @MappedSuperclass
 public class ProAuditoriaVO implements Serializable {
@@ -49,7 +49,7 @@ public class ProAuditoriaVO implements Serializable {
 		this.cdLoginUsuario = cdLoginUsuario;
 	}
 
-	@RevisionTimestamp
+//	@RevisionTimestamp
 	public long getTimestamp() {
 		return timestamp;
 	}
