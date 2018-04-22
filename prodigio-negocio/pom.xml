@@ -15,7 +15,38 @@
 	<artifactId>minerium-negocio</artifactId>
 	<name>Prodigio Implementação - ${project.version}</name>
 	<description>Implementação da interface</description>
-	
+	<properties>
+		<version.zk>8.0.2.2</version.zk>
+		<version.zk.mod>8.0.1.1</version.zk.mod>
+		<version.bouncycastle>1.49</version.bouncycastle>
+		<zkel.version>1.1.0</zkel.version>
+		<commons-lang.version>2.4</commons-lang.version>
+		<servlet.version>2.4</servlet.version>
+		<ckez.version>4.4.6.3</ckez.version>
+		<bsh.version>2.0b4</bsh.version>
+		<commons-io.version>2.4</commons-io.version>
+		<filters.version>2.0.235</filters.version>
+		<itext.version>2.1.5</itext.version>
+		<jxl.version>2.6.12</jxl.version>
+		<jcommon.version>1.0.17</jcommon.version>
+		<poi.version>3.7</poi.version>
+		<commons-collections.version>3.2.1</commons-collections.version>
+		<commons-fileupload.version>1.2.2</commons-fileupload.version>
+		<commons-logging.version>1.1.1</commons-logging.version>
+		<commons-codec.version>1.8</commons-codec.version>
+		<jasperreports.version>4.5.1</jasperreports.version>
+		<javassist.version>3.18.2-GA</javassist.version>
+		<gson.version>2.3.1</gson.version>
+		<zsoup.version>1.8.2.5</zsoup.version>
+		<slf4j-api.version>1.7.5</slf4j-api.version>
+		<slf4j-jdk14.version>1.7.5</slf4j-jdk14.version>
+		<gmapsz.version>3.0.3</gmapsz.version>
+		<timelinez.version>2.3.1_50</timelinez.version>
+		<timeplotz.version>1.1_50</timeplotz.version>
+		<zuljsp.version>2.6.0</zuljsp.version>
+		<flashchart.version>1.0</flashchart.version>
+		<jfreechart.version>1.0.14</jfreechart.version>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>br.mg.gov.prodemge.prodigio</groupId>
@@ -45,19 +76,20 @@
 		</dependency>
 		<!-- Import the CDI API, we use provided scope as the API is included in JBoss AS 7 -->
 		<dependency>
-			<groupId>javax.enterprise</groupId>
-			<artifactId>cdi-api</artifactId>
-			<scope>provided</scope>
+		    <groupId>javax.enterprise</groupId>
+		    <artifactId>cdi-api</artifactId>
+		    <scope>provided</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
+		<!-- dependency>
 			<groupId>org.hibernate.envers</groupId>
 			<artifactId>hibernate-envers</artifactId>
-		</dependency>
+		</dependency -->
 		
 		<!-- Test scope dependencies -->
 <!-- 		<dependency> -->
