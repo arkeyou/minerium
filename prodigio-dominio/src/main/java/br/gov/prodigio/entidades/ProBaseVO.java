@@ -32,8 +32,6 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.persistence.Version;
 
-import org.hibernate.envers.NotAudited;
-
 @MappedSuperclass
 public class ProBaseVO implements Serializable {
 

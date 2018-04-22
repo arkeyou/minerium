@@ -19,8 +19,8 @@ package br.gov.prodigio.entidades;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.gov.prodemge.ssc.interfaces.base.IUnidadeBase;
-import br.gov.prodemge.ssc.interfaces.base.IUsuarioBase;
+//import br.gov.prodemge.ssc.interfaces.base.IUnidadeBase;
+//import br.gov.prodemge.ssc.interfaces.base.IUsuarioBase;
 
 public class ArquivoVO extends ProBaseVO {
 	private boolean isArquivo = false;
@@ -29,8 +29,8 @@ public class ArquivoVO extends ProBaseVO {
 	private String caminhoAbsoluto = "";
 	private String caminhoVirtual = "";
 	private byte[] binario = null;
-	private IUsuarioBase usuarioVO;
-	private IUnidadeBase unidadeAdministrativaVO;
+	//private IUsuarioBase usuarioVO;
+	//private IUnidadeBase unidadeAdministrativaVO;
 	private List<ArquivoVO> arquivosFilhos = null;
 	private boolean filhosCarregados;
 
@@ -95,7 +95,7 @@ public class ArquivoVO extends ProBaseVO {
 		this.caminhoVirtual = caminhoVirtual;
 	}
 
-	public IUsuarioBase getUsuarioVO() {
+	/*public IUsuarioBase getUsuarioVO() {
 		return usuarioVO;
 	}
 
@@ -109,7 +109,7 @@ public class ArquivoVO extends ProBaseVO {
 
 	public void setUnidadeAdministrativaVO(IUnidadeBase unidadeAdministrativaVO) {
 		this.unidadeAdministrativaVO = unidadeAdministrativaVO;
-	}
+	}*/
 
 	public boolean isFilhosCarregados() {
 		return filhosCarregados;

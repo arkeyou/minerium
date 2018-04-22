@@ -28,10 +28,7 @@
 		</build> -->
 
 	<dependencies>
-		<dependency>
-			<groupId>br.mg.gov.prodemge.prodigio</groupId>
-			<artifactId>minerium-comum</artifactId>
-		</dependency>
+		
 		<dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>
 			<artifactId>hibernate-jpa-2.0-api</artifactId>
@@ -42,11 +39,11 @@
 			<artifactId>hibernate-core</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
+		<!-- dependency>
 			<groupId>org.hibernate.envers</groupId>
 			<artifactId>hibernate-envers</artifactId>
-			<scope>provided</scope>
-		</dependency>
+			<version>4.1.3.Final</version>
+		</dependency -->
 		<!-- JSR-303 (Bean Validation) Implementation -->
 		<!-- Provides portable constraints such as @Email -->
 		<!-- Hibernate Validator is shipped in JBoss AS 7 -->
@@ -56,11 +53,11 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<dependency>
+		<!-- dependency>
 			<groupId>br.gov.prodemge.ssc</groupId>
 			<artifactId>ssc-interfaces</artifactId>
 			<version>1.2.23</version>
-		</dependency>
+		</dependency -->
 		<dependency>
 			<groupId>org.jboss.spec.javax.ejb</groupId>
 			<artifactId>jboss-ejb-api_3.1_spec</artifactId>
@@ -85,7 +82,11 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>br.mg.gov.prodemge.prodigio</groupId>
+			<artifactId>minerium-comum</artifactId>
+			<version>1.0.000-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>
