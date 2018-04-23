@@ -16,7 +16,7 @@
 	<name>Prodigio Web-ZK - ${project.version}</name>
 	<description>Camada web do framework Prodigio</description>
 	<properties>
-		<version.zk>8.0.2.2</version.zk>
+		<version.zk>8.5.0</version.zk>
 		<version.zk.mod>8.0.1.1</version.zk.mod>
 		<version.bouncycastle>1.49</version.bouncycastle>
 		<zkel.version>1.1.0</zkel.version>
