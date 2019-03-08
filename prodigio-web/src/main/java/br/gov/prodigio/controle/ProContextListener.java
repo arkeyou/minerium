@@ -50,7 +50,7 @@ import br.gov.prodigio.comuns.anotacoes.Lookup;
 import br.gov.prodigio.comuns.utils.ProConfiguracao;
 import br.gov.prodigio.entidades.ProBaseVO;
 
-@WebListener
+//@WebListener
 public class ProContextListener implements ServletContextListener {
 	private static final Logger log = LoggerFactory.getLogger(ProContextListener.class);
 
