@@ -31,6 +31,7 @@ import javax.naming.NamingException;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.hibernate.collection.internal.AbstractPersistentCollection;
@@ -140,6 +141,7 @@ public class ProDAOHelper {
 	}
 
 	public static EntityManagerFactory getEntityManagerFactory() {
+		//Para EJB
 		EntityManagerFactory toReturn = null;
 		Context context;
 		try {
@@ -152,6 +154,11 @@ public class ProDAOHelper {
 			} catch (NamingException e1) {
 				log.error("Erro ao recuperar o EntityManagerFactory", e);
 			}
+		}
+		
+		if (toReturn==null) {
+			//Para Google App Engine JPA
+			toReturn = Persistence.createEntityManagerFactory("transactions-optional");
 		}
 		return toReturn;
 	}
