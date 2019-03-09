@@ -154,12 +154,13 @@ public class ProDAOHelper {
 			} catch (NamingException e1) {
 				log.error("Erro ao recuperar o EntityManagerFactory", e);
 			}
+		} catch (Exception e) {
+			if (toReturn==null) {
+				//Para Google App Engine JPA
+				toReturn = Persistence.createEntityManagerFactory("transactions-optional");
+			}
 		}
 		
-		if (toReturn==null) {
-			//Para Google App Engine JPA
-			toReturn = Persistence.createEntityManagerFactory("transactions-optional");
-		}
 		return toReturn;
 	}
 
