@@ -16,6 +16,7 @@
  *******************************************************************************/
 package br.gov.prodigio.visao.helper;
 
+import java.io.Serializable;
 import java.util.Map.Entry;
 import java.util.Set;
 
@@ -32,7 +33,7 @@ import br.gov.prodigio.comuns.excecoes.ViolacaoDeRegraEx;
 import br.gov.prodigio.controle.ProCtr;
 import br.gov.prodigio.entidades.ProBaseVO;
 
-public class ProMessageHelper {
+public class ProMessageHelper implements Serializable {
 	private static final Logger log = LoggerFactory.getLogger(ProMessageHelper.class);
 
 	protected ProCtr<? extends ProBaseVO> ctr;

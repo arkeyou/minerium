@@ -56,6 +56,8 @@ public class ProDAOHelper {
 
 	private static final ThreadLocal<EntityManager> entityManagerThreadLocal = new ThreadLocal<EntityManager>();
 
+	private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("transactions-optional");
+	
 	private static final String ERROR_RETURN = "";
 
 	private static String getJNDIName() {
@@ -156,8 +158,8 @@ public class ProDAOHelper {
 			}
 		} catch (Exception e) {
 			if (toReturn==null) {
-				//Para Google App Engine JPA
-				toReturn = Persistence.createEntityManagerFactory("transactions-optional");
+				//Para JPA
+				toReturn = emf;
 			}
 		}
 		

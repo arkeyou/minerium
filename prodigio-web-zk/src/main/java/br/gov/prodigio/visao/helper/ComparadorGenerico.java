@@ -17,6 +17,7 @@
 
 package br.gov.prodigio.visao.helper;
 
+import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Comparator;
 
@@ -25,7 +26,7 @@ import org.slf4j.LoggerFactory;
 
 import br.gov.prodigio.comuns.utils.Reflexao;
 
-public class ComparadorGenerico implements Comparator {
+public class ComparadorGenerico implements Comparator, Serializable {
 	private static final Logger log = LoggerFactory.getLogger(ComparadorGenerico.class);
 	private boolean ascendente;
 	private String atributo;

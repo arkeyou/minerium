@@ -16,6 +16,8 @@
  *******************************************************************************/
 package br.gov.prodigio.controle.componente;
 
+import java.io.Serializable;
+
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.WrongValueException;
 import org.zkoss.zul.Constraint;
@@ -29,7 +31,7 @@ import org.zkoss.zul.impl.InputElement;
 import br.gov.prodigio.comuns.utils.Context;
 import br.gov.prodigio.controle.ProCtr;
 
-public class GenericConstraint implements Constraint {
+public class GenericConstraint implements Constraint, Serializable {
 	SimpleConstraint simpleConstraint = null;
 
 	@Override

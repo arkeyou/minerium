@@ -16,10 +16,12 @@
  *******************************************************************************/
 package br.gov.prodigio.controle.componente;
 
+import java.io.Serializable;
+
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zkplus.databind.TypeConverter;
 
-public class BandboxbindConverter implements TypeConverter {
+public class BandboxbindConverter implements TypeConverter, Serializable {
 
 	@Override
 	public Object coerceToBean(Object val, Component comp) {
