@@ -21,6 +21,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -54,6 +55,7 @@ import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.WrongValueException;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
+import org.zkoss.zk.ui.event.SerializableEventListener;
 import org.zkoss.zk.ui.ext.Disable;
 import org.zkoss.zkplus.databind.BindingListModelList;
 import org.zkoss.zul.Button;
@@ -136,7 +138,7 @@ import com.itextpdf.tool.xml.pipeline.html.HtmlPipeline;
 import com.itextpdf.tool.xml.pipeline.html.HtmlPipelineContext;
 
 @SuppressWarnings("rawtypes")
-public class ProHelperView {
+public class ProHelperView implements Serializable {
 	private static final int PROFUNDIDADE = 3;
 
 	private static final Logger log = LoggerFactory.getLogger(ProHelperView.class);
@@ -750,7 +752,7 @@ public class ProHelperView {
 		IUsuarioBase usuarioVO = controller.getUsuarioVO();
 		String recurso = recuperaCasoDeUsoAtual(controller);
 		if (perfilPossuiFuncao(usuarioVO, recurso, operacao)) {
-			final EventListener eventListenerOnClick = new EventListener() {
+			final SerializableEventListener<Event> eventListenerOnClick = new SerializableEventListener<Event>() {
 				@Override
 				public void onEvent(Event e) throws Exception {
 					controller.getClass().getMethod(idDoBotao).invoke(controller);
