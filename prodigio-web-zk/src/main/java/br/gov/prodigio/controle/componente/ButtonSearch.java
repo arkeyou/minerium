@@ -18,7 +18,7 @@ package br.gov.prodigio.controle.componente;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Event;
-import org.zkoss.zk.ui.event.EventListener;
+import org.zkoss.zk.ui.event.SerializableEventListener;
 import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.ext.AfterCompose;
 import org.zkoss.zk.ui.util.Clients;
@@ -42,7 +42,7 @@ public class ButtonSearch extends Button implements AfterCompose {
 	public void afterCompose() {
 		Window window = ProCtr.findWindow(this);
 		final ProCtr ctr = (ProCtr) window.getAttribute(window.getId() + "$" + "composer");
-		addEventListener(Events.ON_CLICK, new EventListener() {
+		addEventListener(Events.ON_CLICK, new SerializableEventListener() {
 			@Override
 			public void onEvent(Event e) throws Exception {
 				Bandboxbind bandboxbind = (Bandboxbind) e.getTarget().getParent().getFirstChild();
@@ -51,7 +51,7 @@ public class ButtonSearch extends Button implements AfterCompose {
 			}
 		});
 
-		addEventListener(Events.ON_FOCUS, new EventListener() {
+		addEventListener(Events.ON_FOCUS, new SerializableEventListener() {
 			@Override
 			public void onEvent(Event e) throws Exception {
 				ctr.onFocusCtl(e);

@@ -21,7 +21,7 @@ import java.lang.reflect.Method;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.zkoss.zk.ui.event.Event;
-import org.zkoss.zk.ui.event.EventListener;
+import org.zkoss.zk.ui.event.SerializableEventListener;
 import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.ext.AfterCompose;
 import org.zkoss.zul.Button;
@@ -72,7 +72,7 @@ public class ButtonRelatorioExcelBind extends Button implements AfterCompose {
 	public void afterCompose() {
 		Window window = ProCtr.findWindow(this);
 		final ProCtr ctr = (ProCtr) window.getAttribute(window.getId() + "$" + "composer");
-		this.addEventListener(Events.ON_CLICK, new EventListener() {
+		this.addEventListener(Events.ON_CLICK, new SerializableEventListener() {
 			@Override
 			public void onEvent(Event e) throws Exception {
 				ButtonRelatorioExcelBind buttonExcelBind = (ButtonRelatorioExcelBind) e.getTarget();

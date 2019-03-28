@@ -21,6 +21,7 @@ import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
+import org.zkoss.zk.ui.event.SerializableEventListener;
 import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.ext.AfterCompose;
 import org.zkoss.zul.Div;
@@ -89,7 +90,7 @@ public class Help extends Div implements AfterCompose{
 		
 		final String texto = "<html xmlns='native'>${"+content+"}</html>";
 		
-		image.addEventListener(Events.ON_CLICK, new EventListener<Event>() {
+		image.addEventListener(Events.ON_CLICK, new SerializableEventListener<Event>() {
             @Override
             public void onEvent(Event event) throws Exception {
             	Image image = (Image) event.getTarget();
@@ -98,7 +99,7 @@ public class Help extends Div implements AfterCompose{
             }
         });
 		
-		EventListener evtnm = new EventListener() {
+		EventListener evtnm = new SerializableEventListener() {
 			public void onEvent(Event e) throws Exception {
 				Executions.getCurrent().createComponentsDirectly(texto, "zhtml",e.getTarget().getLastChild(), null);
 			}

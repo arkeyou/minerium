@@ -31,6 +31,7 @@ import org.zkoss.zk.ui.AbstractComponent;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
+import org.zkoss.zk.ui.event.SerializableEventListener;
 import org.zkoss.zul.Menuitem;
 import org.zkoss.zul.Menupopup;
 import org.zkoss.zul.impl.LabelElement;
@@ -246,7 +247,7 @@ public class WindowIntroducao extends WindowPrincipalUnsecured {
 	}
 
 	protected EventListener evento() {
-		return new EventListener() {
+		return new SerializableEventListener() {
 			@Override
 			public void onEvent(Event e) throws Exception {
 				abrir((AbstractComponent) e.getTarget());

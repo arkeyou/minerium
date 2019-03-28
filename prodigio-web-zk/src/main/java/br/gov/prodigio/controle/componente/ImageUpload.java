@@ -22,6 +22,7 @@ import java.util.Map;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
+import org.zkoss.zk.ui.event.SerializableEventListener;
 import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.ext.AfterCompose;
 import org.zkoss.zul.Button;
@@ -56,7 +57,7 @@ public class ImageUpload extends Vbox implements AfterCompose, FieldValidator {
 		final Button anexar = new Button();
 		anexar.setLabel("Anexar");
 
-		EventListener eventoOnClick = new EventListener() {
+		EventListener eventoOnClick = new SerializableEventListener() {
 			public void onEvent(Event e) throws Exception {
 				ctr.anexar(recuperaCampoImagem(e.getTarget()), (ImageUpload) ((Button) e.getTarget()).getParent());
 			}

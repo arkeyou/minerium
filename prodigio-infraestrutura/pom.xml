@@ -177,11 +177,11 @@
 		</dependency>
 
 		<!-- REST -->
-		<dependency>
+		<!-- dependency>
 			<groupId>br.mg.gov.prodemge.prodigio</groupId>
 			<artifactId>json</artifactId>
 			<version>0.0.3-SNAPSHOT</version>
-		</dependency>
+		</dependency -->
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>

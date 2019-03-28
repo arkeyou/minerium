@@ -25,6 +25,7 @@ import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Page;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
+import org.zkoss.zk.ui.event.SerializableEventListener;
 import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zul.Menupopup;
@@ -49,7 +50,7 @@ public class ListDiretoryBind extends Tree {
 	@Override
 	public void onPageAttached(Page newpage, Page oldpage) {
 		super.onPageAttached(newpage, oldpage);
-		EventListener evtnm = new EventListener() {
+		EventListener evtnm = new SerializableEventListener() {
 			public void onEvent(Event e) throws Exception {
 				Window window = ProCtr.findWindow(e.getTarget());
 				ctr = (ProCtr) window.getAttribute("$composer");
@@ -124,7 +125,7 @@ public class ListDiretoryBind extends Tree {
 		treerow2.appendChild(treecell2);
 		treeitem2.appendChild(treerow2);
 		treechildren.appendChild(treeitem2);
-		EventListener evtnm = new EventListener() {
+		EventListener evtnm = new SerializableEventListener() {
 			public void onEvent(Event e) throws Exception {
 				Treeitem treeitem = (Treeitem) e.getTarget();
 				ArquivoVO arquivoVO = (ArquivoVO) treeitem.getAttribute(ARQUIVO_ASSOCIADO);
@@ -172,7 +173,7 @@ public class ListDiretoryBind extends Tree {
 			}
 		}
 
-		EventListener evtnm = new EventListener() {
+		EventListener evtnm = new SerializableEventListener() {
 			public void onEvent(Event e) throws Exception {
 				/*
 				 * final String ATUALIZADO = "atualizadoNatela"; Treeitem treeitem = (Treeitem) e.getTarget(); ArquivoVO arquivoVO = (ArquivoVO) treeitem.getAttribute(ARQUIVO_ASSOCIADO); List<ArquivoVO> filhos = arquivoVO.getArquivosFilhos();

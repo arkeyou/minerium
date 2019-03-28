@@ -56,7 +56,7 @@ public class ProDAOHelper {
 
 	private static final ThreadLocal<EntityManager> entityManagerThreadLocal = new ThreadLocal<EntityManager>();
 
-	private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("transactions-optional");
+	private static final EntityManagerFactory emf = getDatastoreJPA();
 	
 	private static final String ERROR_RETURN = "";
 
@@ -141,6 +141,16 @@ public class ProDAOHelper {
 		}
 		return entityManagerThreadLocal.get();
 	}
+	
+	public static EntityManagerFactory getDatastoreJPA() {
+		EntityManagerFactory entity;
+		try {
+			entity = Persistence.createEntityManagerFactory("transactions-optional");
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		return entity;
+	}
 
 	public static EntityManagerFactory getEntityManagerFactory() {
 		//Para EJB
@@ -155,11 +165,16 @@ public class ProDAOHelper {
 				toReturn = (EntityManagerFactory) context.lookup(getJNDINameComVersao());
 			} catch (NamingException e1) {
 				log.error("Erro ao recuperar o EntityManagerFactory", e);
+				throw new RuntimeException(e);
 			}
 		} catch (Exception e) {
 			if (toReturn==null) {
-				//Para JPA
-				toReturn = emf;
+				if (emf!=null) {
+					//Para JPA
+					toReturn = emf;
+				} else {
+					throw e;
+				}
 			}
 		}
 		

@@ -17,6 +17,7 @@
 package br.gov.prodigio.controle.componente;
 
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -32,6 +33,7 @@ import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Components;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
+import org.zkoss.zk.ui.event.SerializableEventListener;
 import org.zkoss.zk.ui.sys.ComponentCtrl;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zkplus.databind.BindingListModelList;
@@ -60,7 +62,7 @@ import br.gov.prodigio.entidades.Arquivo;
 import br.gov.prodigio.entidades.ProBaseVO;
 import br.gov.prodigio.utils.ManipulacaoUploadUtil;
 
-public class ProAnnotateDataBinderHelper {
+public class ProAnnotateDataBinderHelper  implements Serializable {
 	private static final String PROPRIEDADE_FORMATO = "formato";
 	private static final String PROPRIEDADE_APPLICATION_TYPE = "applicationType";
 	private static final String PROPRIEDADE_NOME = "nome";
@@ -151,7 +153,7 @@ public class ProAnnotateDataBinderHelper {
 		annBand.put("converter", BandboxbindConverter.class.getName());
 		bandbox.addAnnotation("value", "default", annBand);
 
-		EventListener evento2 = new EventListener() {
+		EventListener evento2 = new SerializableEventListener() {
 			@Override
 			public void onEvent(Event e) throws Exception {
 				Bandboxbind bandboxbind = (Bandboxbind) e.getTarget();
@@ -173,7 +175,7 @@ public class ProAnnotateDataBinderHelper {
 		aplicaAnotacoesParaObjetoPai(comp);
 		aplicaAnotacoesParaObjectRoot(comp);
 
-		EventListener evento = new EventListener() {
+		EventListener evento = new SerializableEventListener() {
 			@Override
 			public void onEvent(Event e) throws Exception {
 				TextboxBind textboxBind = (TextboxBind) e.getTarget();
@@ -266,7 +268,7 @@ public class ProAnnotateDataBinderHelper {
 		buttonBind.addAnnotation("rootObject", "default", annBand);
 		final Boolean deleteEmEstruturaDiretorios = manipulacaoArquivosEstruturaDiretorios(buttonBind);
 
-		buttonBind.addEventListener("onClick", new EventListener() {
+		buttonBind.addEventListener("onClick", new SerializableEventListener() {
 			@Override
 			public void onEvent(Event e) throws Exception {
 				ButtonDeleteDownloadBind target = (ButtonDeleteDownloadBind) e.getTarget();
@@ -327,7 +329,7 @@ public class ProAnnotateDataBinderHelper {
 		buttonBind.addAnnotation("objectPai", "default", annBand2);
 		final Boolean uploadEmEstruturaDiretorios = manipulacaoArquivosEstruturaDiretorios(buttonBind);
 
-		buttonBind.addEventListener("onClick", new EventListener() {
+		buttonBind.addEventListener("onClick", new SerializableEventListener() {
 			@Override
 			public void onEvent(Event e) throws Exception {
 				ButtonUploadBind target = (ButtonUploadBind) e.getTarget();
@@ -433,7 +435,7 @@ public class ProAnnotateDataBinderHelper {
 		final Boolean downloadEmEstruturaDiretorios = buttonDownloadBind.isEmEstruturaDeArquivos() == null ? false : buttonDownloadBind.isEmEstruturaDeArquivos();
 		final Boolean downloadPdfAssinado = buttonDownloadBind.isImpAssinaturaPdf() == null ? false : buttonDownloadBind.isImpAssinaturaPdf();
 
-		buttonDownloadBind.addEventListener("onClick", new EventListener() {
+		buttonDownloadBind.addEventListener("onClick", new SerializableEventListener() {
 			@Override
 			public void onEvent(Event e) throws Exception {
 				ButtonDownloadBind target = (ButtonDownloadBind) e.getTarget();
@@ -473,7 +475,7 @@ public class ProAnnotateDataBinderHelper {
 		aplicaAnotacoesParaObject(radiogroupBind);
 		aplicaAnotacoesParaObjetoPai(radiogroupBind);
 		aplicaAnotacoesParaObjectRoot(radiogroupBind);
-		radiogroupBind.addEventListener("onCreate", new EventListener() {
+		radiogroupBind.addEventListener("onCreate", new SerializableEventListener() {
 			@Override
 			public void onEvent(Event event) {
 				try {
@@ -586,7 +588,7 @@ public class ProAnnotateDataBinderHelper {
 		ann.put("value", nomeDoObjeto);
 		ann.put("save-when", "self.onCheck");
 		comp.addAnnotation("checked", "default", ann);
-		EventListener evento = new EventListener() {
+		EventListener evento = new SerializableEventListener() {
 			@Override
 			public void onEvent(Event e) throws Exception {
 				CheckboxBind campoNaTela = (CheckboxBind) e.getTarget();
@@ -788,7 +790,7 @@ public class ProAnnotateDataBinderHelper {
 		listboxdual.appendChild(vbox);
 		listboxdual.appendChild(listboxDestino);
 
-		righ.addEventListener("onClick", new EventListener() {
+		righ.addEventListener("onClick", new SerializableEventListener() {
 			@Override
 			public void onEvent(Event e) throws Exception {
 				Listboxdual listboxdual = (Listboxdual) e.getTarget().getParent().getParent();
@@ -796,14 +798,14 @@ public class ProAnnotateDataBinderHelper {
 			}
 		});
 
-		left.addEventListener("onClick", new EventListener() {
+		left.addEventListener("onClick", new SerializableEventListener() {
 			@Override
 			public void onEvent(Event e) throws Exception {
 				Listboxdual listboxdual = (Listboxdual) e.getTarget().getParent().getParent();
 				ctr.alternaValorParaListaDual(listboxdual.getDestino(), listboxdual.getOrigem());
 			}
 		});
-		listboxdual.addEventListener("onCreate", new EventListener() {
+		listboxdual.addEventListener("onCreate", new SerializableEventListener() {
 			@Override
 			public void onEvent(Event e) throws Exception {
 				Listboxdual listboxdual = (Listboxdual) e.getTarget();
@@ -860,7 +862,7 @@ public class ProAnnotateDataBinderHelper {
 				Button buttonNovoDetalhe = new Button();
 				buttonNovoDetalhe.setLabel("Novo");
 				buttonNovoDetalhe.setSclass("btn-default btn btn-novo-detalhe");
-				buttonNovoDetalhe.addEventListener("onClick", new EventListener() {
+				buttonNovoDetalhe.addEventListener("onClick", new SerializableEventListener() {
 					@Override
 					public void onEvent(Event e) throws Exception {
 						Component parent = e.getTarget().getParent();
@@ -879,7 +881,7 @@ public class ProAnnotateDataBinderHelper {
 				Button buttonExcluiDetalhe = new Button();
 				buttonExcluiDetalhe.setLabel("Excluir");
 				buttonExcluiDetalhe.setSclass("btn-default btn btn-excluir-detalhe");
-				buttonExcluiDetalhe.addEventListener("onClick", new EventListener() {
+				buttonExcluiDetalhe.addEventListener("onClick", new SerializableEventListener() {
 					@Override
 					public void onEvent(Event e) throws Exception {
 						Component parent = e.getTarget().getParent();
@@ -967,7 +969,7 @@ public class ProAnnotateDataBinderHelper {
 		annBand.put("converter", "br.gov.prodigio.controle.componente.ProRadiogroupArgSelectItemConverter");
 		radiogroupArg.addAnnotation("selectedItem", "default", annBand);
 
-		radiogroupArg.addEventListener("onCreate", new EventListener() {
+		radiogroupArg.addEventListener("onCreate", new SerializableEventListener() {
 			@Override
 			public void onEvent(Event e) throws Exception {
 				RadiogroupArg radiogroupArg = (RadiogroupArg) e.getTarget();

@@ -54,7 +54,7 @@ import org.zkoss.zk.ui.Desktop;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.WrongValueException;
 import org.zkoss.zk.ui.event.Event;
-import org.zkoss.zk.ui.event.EventListener;
+import org.zkoss.zk.ui.event.SerializableEventListener;
 import org.zkoss.zk.ui.event.SerializableEventListener;
 import org.zkoss.zk.ui.ext.Disable;
 import org.zkoss.zkplus.databind.BindingListModelList;
@@ -771,7 +771,7 @@ public class ProHelperView implements Serializable {
 		}
 	}
 
-	protected Button criaBotao(final ProCtr controller, final String id, final boolean visibilidade, final String label, final String largura, final String altura, EventListener<? extends Event> eventListenerOnClick) {
+	protected Button criaBotao(final ProCtr controller, final String id, final boolean visibilidade, final String label, final String largura, final String altura, SerializableEventListener<? extends Event> eventListenerOnClick) {
 		Button botao = null;
 		final Component comp = controller.getTela().getFellowIfAny(id);
 		if (comp != null) {
@@ -1326,13 +1326,13 @@ public class ProHelperView implements Serializable {
 			rowOrientacao.appendChild(radiogroupOrientacao);
 			rows.appendChild(rowOrientacao);
 
-			radioPdf.addEventListener("onClick", new EventListener() {
+			radioPdf.addEventListener("onClick", new SerializableEventListener() {
 				@Override
 				public void onEvent(Event e) throws Exception {
 					rowOrientacao.setVisible(true);
 				}
 			});
-			radioXls.addEventListener("onClick", new EventListener() {
+			radioXls.addEventListener("onClick", new SerializableEventListener() {
 				@Override
 				public void onEvent(Event e) throws Exception {
 					rowOrientacao.setVisible(false);
@@ -1349,7 +1349,7 @@ public class ProHelperView implements Serializable {
 			Button botaoExportar = new Button();
 			botaoExportar.setLabel("Exportar");
 			botaoExportar.setSclass("");
-			botaoExportar.addEventListener("onClick", new EventListener() {
+			botaoExportar.addEventListener("onClick", new SerializableEventListener() {
 				@Override
 				public void onEvent(Event e) throws Exception {
 					boolean somentePagAtual = exportarPaginaAtual.isChecked();

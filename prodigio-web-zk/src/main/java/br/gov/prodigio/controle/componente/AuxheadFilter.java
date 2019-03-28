@@ -18,7 +18,7 @@ package br.gov.prodigio.controle.componente;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Event;
-import org.zkoss.zk.ui.event.EventListener;
+import org.zkoss.zk.ui.event.SerializableEventListener;
 import org.zkoss.zk.ui.ext.AfterCompose;
 import org.zkoss.zul.Auxhead;
 import org.zkoss.zul.Button;
@@ -64,7 +64,7 @@ public class AuxheadFilter extends Auxhead implements AfterCompose {
 			}else{
 				botaoFiltrar.setLabel("Filtrar");
 			}
-			botaoFiltrar.addEventListener("onClick", new EventListener<Event>() {
+			botaoFiltrar.addEventListener("onClick", new SerializableEventListener<Event>() {
 				public void onEvent(Event event) throws Exception {
 					ProCtr ctr = (ProCtr) window.getAttribute(window.getId() + "$" + "composer");
 					ctr.getBinder().loadComponent(getParent());

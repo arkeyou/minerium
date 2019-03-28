@@ -30,6 +30,7 @@ import org.zkoss.zk.au.AuRequest;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
+import org.zkoss.zk.ui.event.SerializableEventListener;
 import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.event.KeyEvent;
 import org.zkoss.zk.ui.ext.AfterCompose;
@@ -144,7 +145,7 @@ public class Bandboxbind extends Bandbox implements AfterCompose, FieldValidator
 		GenericConstraint.configuraConstraint(this);
 		Window window = ProCtr.findWindow(this);
 		final ProCtr ctr = (ProCtr) window.getAttribute(window.getId() + "$" + "composer");
-		addEventListener(Events.ON_OK, new EventListener() {
+		addEventListener(Events.ON_OK, new SerializableEventListener() {
 			@Override
 			public void onEvent(Event e) throws Exception {
 				if (!pararDeAbrir) {
@@ -159,7 +160,7 @@ public class Bandboxbind extends Bandbox implements AfterCompose, FieldValidator
 		});
 
 		setCtrlKeys("#del#up#down");
-		addEventListener(Events.ON_CTRL_KEY, new EventListener() {
+		addEventListener(Events.ON_CTRL_KEY, new SerializableEventListener() {
 			@SuppressWarnings("static-access")
 			@Override
 			public void onEvent(Event e) throws Exception {
@@ -183,14 +184,14 @@ public class Bandboxbind extends Bandbox implements AfterCompose, FieldValidator
 			}
 		});
 
-		addEventListener(Events.ON_BLUR, new EventListener() {
+		addEventListener(Events.ON_BLUR, new SerializableEventListener() {
 			@Override
 			public void onEvent(Event e) throws Exception {
 				pararDeAbrir = false;
 			}
 		});
 
-		addEventListener(Events.ON_OPEN, new EventListener() {
+		addEventListener(Events.ON_OPEN, new SerializableEventListener() {
 			@Override
 			public void onEvent(Event event) throws Exception {
 				Bandboxbind bandboxbind = (Bandboxbind) event.getTarget();
@@ -203,7 +204,7 @@ public class Bandboxbind extends Bandbox implements AfterCompose, FieldValidator
 			}
 		});
 
-		addEventListener(Events.ON_CREATE, new EventListener() {
+		addEventListener(Events.ON_CREATE, new SerializableEventListener() {
 			@Override
 			public void onEvent(Event e) throws Exception {
 				ctr.registrarEventoOnKeyUpBandbox(e);

@@ -21,6 +21,7 @@ import java.util.List;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
+import org.zkoss.zk.ui.event.SerializableEventListener;
 import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.ext.AfterCompose;
 import org.zkoss.zul.Button;
@@ -50,7 +51,7 @@ public class ButtonBox extends Hbox implements AfterCompose {
 		Window window = ProCtr.findWindow(this);
 		final ProTabularCtr ctrTabular = (ProTabularCtr) window.getAttribute(window.getId() + "$" + "composer");
 
-		EventListener eventoEditar = new EventListener() {
+		EventListener eventoEditar = new SerializableEventListener() {
 			public void onEvent(Event e) throws Exception {
 				Listitem listitem = recuperaListaItemDeButtonBox(((Button) e.getTarget()).getParent());
 				editarLinha(listitem, ((Button) e.getTarget()).getParent());
@@ -62,7 +63,7 @@ public class ButtonBox extends Hbox implements AfterCompose {
 		editar.setTooltiptext("Editar Linha");
 		appendChild(editar);
 
-		EventListener eventoSalvar = new EventListener() {
+		SerializableEventListener eventoSalvar = new SerializableEventListener() {
 			public void onEvent(Event e) throws Exception {
 				Listitem listitem = recuperaListaItemDeButtonBox(((Button) e.getTarget()).getParent());
 				check(listitem);
@@ -78,7 +79,7 @@ public class ButtonBox extends Hbox implements AfterCompose {
 		salvar.setVisible(false);
 		appendChild(salvar);
 
-		EventListener eventoExcluir = new EventListener() {
+		SerializableEventListener eventoExcluir = new SerializableEventListener() {
 			public void onEvent(Event e) throws Exception {
 
 				if (Messagebox.show("Você deseja excluir o registro?", "Confimação de Deleção", Messagebox.YES | Messagebox.CANCEL, Messagebox.QUESTION) == Messagebox.YES) {
@@ -96,7 +97,7 @@ public class ButtonBox extends Hbox implements AfterCompose {
 		excluir.setVisible(false);
 		appendChild(excluir);
 
-		addEventListener(Events.ON_CREATE, new EventListener() {
+		addEventListener(Events.ON_CREATE, new SerializableEventListener() {
 			@Override
 			public void onEvent(Event e) throws Exception {
 				ctrTabular.aplicarSegurancaNoBotaoTabular(e);

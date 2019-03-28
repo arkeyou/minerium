@@ -17,7 +17,7 @@
 package br.gov.prodigio.controle.componente;
 
 import org.zkoss.zk.ui.event.Event;
-import org.zkoss.zk.ui.event.EventListener;
+import org.zkoss.zk.ui.event.SerializableEventListener;
 import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zul.Listcell;
 import org.zkoss.zul.Listitem;
@@ -31,7 +31,7 @@ public class AppListRender implements ListitemRenderer {
 	@Override
 	public void render(Listitem listitem, Object o, int index) throws Exception {
 
-		listitem.addEventListener(Events.ON_CLICK, new EventListener() {
+		listitem.addEventListener(Events.ON_CLICK, new SerializableEventListener() {
 			@Override
 			public void onEvent(Event e) throws Exception {
 				Bandboxbind bandboxbind = (Bandboxbind) e.getTarget().getParent().getParent().getParent();
@@ -40,7 +40,7 @@ public class AppListRender implements ListitemRenderer {
 
 			}
 		});
-		listitem.addEventListener(Events.ON_OK, new EventListener() {
+		listitem.addEventListener(Events.ON_OK, new SerializableEventListener() {
 			@Override
 			public void onEvent(Event e) throws Exception {
 				Bandboxbind bandboxbind = (Bandboxbind) e.getTarget().getParent().getParent().getParent();

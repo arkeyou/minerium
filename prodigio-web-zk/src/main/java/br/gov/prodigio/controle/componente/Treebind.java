@@ -24,6 +24,7 @@ import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Page;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
+import org.zkoss.zk.ui.event.SerializableEventListener;
 import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.ext.AfterCompose;
 import org.zkoss.zul.Tree;
@@ -51,7 +52,7 @@ public class Treebind extends Tree implements AfterCompose {
 	@Override
 	public void onPageAttached(Page newpage, Page oldpage) {
 		super.onPageAttached(newpage, oldpage);
-		EventListener evtnm = new EventListener() {
+		EventListener evtnm = new SerializableEventListener() {
 			public void onEvent(Event e) throws Exception {
 				inicializa();
 			}
@@ -101,7 +102,7 @@ public class Treebind extends Tree implements AfterCompose {
 	 * @param treeitem2
 	 */
 	private void atribuiEventoAoClickarNoItem(Treeitem treeitem2) {
-		EventListener evtnm = new EventListener() {
+		EventListener evtnm = new SerializableEventListener() {
 			public void onEvent(Event e) throws Exception {
 				Treeitem treeitem = (Treeitem) e.getTarget();
 				setNodoSelecionado((TreeNodo) treeitem.getValue());
@@ -143,7 +144,7 @@ public class Treebind extends Tree implements AfterCompose {
 			}
 		}
 
-		EventListener evtnm = new EventListener() {
+		EventListener evtnm = new SerializableEventListener() {
 			public void onEvent(Event e) throws Exception {
 			}
 		};

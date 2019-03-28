@@ -53,6 +53,7 @@ import org.zkoss.zk.ui.SuspendNotAllowedException;
 import org.zkoss.zk.ui.WrongValueException;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
+import org.zkoss.zk.ui.event.SerializableEventListener;
 import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.metainfo.ComponentInfo;
 import org.zkoss.zk.ui.util.Clients;
@@ -2183,7 +2184,7 @@ public class ProCtr<ENTITY extends ProBaseVO> extends GenericForwardComposer {
 		numeroDeRegistros.setWidth("30px");
 		numeroDeRegistros.setId("numeroDeRegistros");
 
-		EventListener eventoEnterRegistrosPorPagina = new EventListener() {
+		EventListener eventoEnterRegistrosPorPagina = new SerializableEventListener() {
 			@Override
 			public void onEvent(Event e) throws Exception {
 				pesquisar();
@@ -2248,7 +2249,7 @@ public class ProCtr<ENTITY extends ProBaseVO> extends GenericForwardComposer {
 		}
 
 		Components.replaceChildren(selecaoBox, newChildren);
-		EventListener evn = new EventListener() {
+		EventListener evn = new SerializableEventListener() {
 			@Override
 			public void onEvent(Event e) throws Exception {
 				Paging paginal = (Paging) e.getTarget();

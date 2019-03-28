@@ -18,7 +18,7 @@ package br.gov.prodigio.visao.helper;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Event;
-import org.zkoss.zk.ui.event.EventListener;
+import org.zkoss.zk.ui.event.SerializableEventListener;
 import org.zkoss.zul.Button;
 import org.zkoss.zul.Div;
 import org.zkoss.zul.Window;
@@ -60,7 +60,7 @@ public class ProReportHelperView extends ProHelperView {
 		relatorio.setHeight("30px");
 		relatorio.setVisible(true);
 		relatorio.setParent(div);
-		relatorio.addEventListener("onClick", new EventListener() {
+		relatorio.addEventListener("onClick", new SerializableEventListener() {
 			@Override
 			public void onEvent(Event e) throws Exception {
 				controller.exibirRelatorio();

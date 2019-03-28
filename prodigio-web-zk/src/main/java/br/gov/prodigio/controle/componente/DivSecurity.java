@@ -64,7 +64,7 @@ public class DivSecurity extends Div implements AfterCompose {
 	@Override
 	public void afterCompose() {
 		final Window window = ProCtr.findWindow(this);
-//		window.getPage().addEventListener("onChange",new EventListener() {
+//		window.getPage().addEventListener("onChange",new SerializableEventListener() {
 //		    public void onEvent(Event event) {
 //		    	validaPermissao(window);
 //		    }
