@@ -16,6 +16,8 @@
  *******************************************************************************/
 package br.gov.prodigio.controle.componente;
 
+import java.io.Serializable;
+
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.SerializableEventListener;
 import org.zkoss.zk.ui.event.Events;
@@ -26,7 +28,7 @@ import org.zkoss.zul.ListitemRenderer;
 import br.gov.prodigio.comuns.utils.Reflexao;
 
 @SuppressWarnings("rawtypes")
-public class AppListRender implements ListitemRenderer {
+public class AppListRender implements ListitemRenderer, Serializable {
 	@SuppressWarnings({ "unchecked" })
 	@Override
 	public void render(Listitem listitem, Object o, int index) throws Exception {
